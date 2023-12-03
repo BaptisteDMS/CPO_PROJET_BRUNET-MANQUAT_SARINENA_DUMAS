@@ -27,7 +27,7 @@ public class CasePlateau {
      * allumée ("1"). Si la case était déjà allumée, la méthode ne fait
      * rien.
      */
-    public void activerCellule(){
+    public void activerCase(){
         if (this.etat!=1){
             this.etat=1;
         }
@@ -38,8 +38,8 @@ public class CasePlateau {
      * éteint ("0"). Si la case était déjà éteinte, la méthode ne fait
      * rien.
      */
-    public void eteindreCellule(){
-        if (this.etat!=0){
+    public void eteindreCase(){
+        if (this.etat==1){
             this.etat=0;
         }
     }
