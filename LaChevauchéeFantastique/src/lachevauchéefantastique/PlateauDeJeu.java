@@ -66,7 +66,7 @@ public class PlateauDeJeu {
     }
     
     /**
-     * Permet de générer un plateau de cellules lumineuses de manière aléatoire
+     * Permet de générer un plateau de case de manière aléatoire
      * à partir d’un nombre spécifié de tours.
      *
      * @param nbTours correspond au nombre de changement aléatoire effectué
@@ -76,5 +76,65 @@ public class PlateauDeJeu {
         for (int i = 0; i < nbTours; i++) {
             activerCaseAleatoire();
         }
+    }
+    
+    /**
+     * Permet de vérifier si toutes les cases du plateau sont éteintes.
+     * Elle retourne true si toutes les cellules sont éteintes, et false sinon.
+     * Elle permet de tester même avec le cavalier.
+     */
+    public boolean CaseToutesEteintes() {
+        int verif = 0;
+        for (int i = 0; i < this.nbLignes; i++) {
+            for (int j = 0; j < this.nbColonnes; j++) {
+                if (this.matriceCase[i][j].estEteint() == false) {
+                    verif += 1;
+                }
+            }
+        }
+        if (verif != 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    /**
+     * Permer d'afficher l'état du plateau de jeu sous forme d'une 
+     * représentation visuelle organisée. Elle crée une chaîne de caractères 
+     * avec des indices pour les lignes et les colonnes, ainsi que des 
+     * caractères " ", "O" et "C" pour représenter l'état des cellules.
+     *
+     * @return correspond à la grille de jeu à afficher
+     */
+    @Override
+    public String toString() {
+        String grille = "   |"; // initialistaion de la première ligne
+        for (int i = 0; i < this.nbColonnes; i++) {
+            grille += " " + i + " |";
+        }
+
+        grille += "\n";
+        for (int i = 0; i < this.nbColonnes + 1; i++) {
+            grille += "----";
+        }
+
+        for (int i = 0; i < this.nbLignes * 2; i++) {
+            grille += "\n";
+            if (i % 2 == 0) {
+                for (int j = 0; j < this.nbColonnes + 1; j++) {
+                    if (j == 0) {
+                        grille += " " + i / 2 + " |";
+                    } else {
+                        grille += " " + this.matriceCase[i / 2][j - 1].toString() + " |";
+                    }
+                }
+            } else {
+                for (int j = 0; j < this.nbColonnes + 1; j++) {
+                    grille += "----";
+                }
+            }
+        }
+        return grille;
     }
 }

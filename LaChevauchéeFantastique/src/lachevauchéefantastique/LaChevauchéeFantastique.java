@@ -13,7 +13,9 @@ public class LaChevauchéeFantastique {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        PlateauDeJeu caca=new PlateauDeJeu(5,5);
+        caca.melangerMatriceAleatoirement(6);
+        System.out.println(caca.toString());
     }
     
 }
