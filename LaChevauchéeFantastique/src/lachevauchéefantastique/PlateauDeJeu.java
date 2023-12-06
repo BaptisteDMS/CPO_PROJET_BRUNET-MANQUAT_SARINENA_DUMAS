@@ -15,6 +15,8 @@ public class PlateauDeJeu {
     public CasePlateau[][] matriceCase;
     int nbLignes;
     int nbColonnes;
+    int position_verticale; //position verticale du cavalier sur le palteau
+    int position_horizontale; //position horizontale du cavalier sur le plateau
     
     /**
      * Ce constructeur permet de créer une nouvelle grille de cellules
@@ -25,16 +27,22 @@ public class PlateauDeJeu {
      * @param p_nbColonnes est le nombre de colonnes que l'on souhaite pour
      * notre plateau
      */
-    public PlateauDeJeu(int p_nbLignes, int p_nbColonnes) {
+    public PlateauDeJeu(int p_nbLignes, int p_nbColonnes, int pc_horizontale, int pc_verticale) {
         this.nbLignes = p_nbLignes;
         this.nbColonnes = p_nbColonnes;
+        this.position_horizontale= pc_horizontale;
+        this.position_verticale= pc_verticale;
         this.matriceCase = new CasePlateau[p_nbLignes][p_nbColonnes];
 
+        // on créer le plateau constitué de ses cases
         for (int i = 0; i < p_nbLignes; i++) {
             for (int j = 0; j < p_nbColonnes; j++) {
                 this.matriceCase[i][j] = new CasePlateau();
             }
         }
+        
+        // on positionne le cavalier sur le plateau
+        this.matriceCase[this.position_verticale][this.position_horizontale].positionnerCavalier();
     }
     
     /**
@@ -44,7 +52,9 @@ public class PlateauDeJeu {
     public void eteindreToutesLesCases() {
         for (int i = 0; i < this.nbLignes; i++) {
             for (int j = 0; j < this.nbColonnes; j++) {
-                this.matriceCase[i][j].eteindreCase();
+                if(this.matriceCase[i][j].getEtat()==1){
+                    this.matriceCase[i][j].eteindreCase();
+                }
             }
         }
     }
@@ -96,6 +106,33 @@ public class PlateauDeJeu {
             return false;
         } else {
             return true;
+        }
+    }
+    
+    public void DeplacerCavalier(int option){
+        if (option==1){
+            // deplacemment Nord 1 (haut puis gauche)
+            int nv_position_vert=this.position_verticale+2;
+            int nv_position_hor=this.position_horizontale-1;
+            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+            }
+            
+        }else if (option==2){
+            
+        }else if (option==3){
+            
+        }else if (option==4){
+            
+        }else if (option==5){
+            
+        }else if (option==6){
+            
+        }else if (option==7){
+            
+        }else{
+            
         }
     }
     

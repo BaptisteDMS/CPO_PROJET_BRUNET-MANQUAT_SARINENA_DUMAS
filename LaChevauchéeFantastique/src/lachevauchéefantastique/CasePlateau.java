@@ -39,9 +39,15 @@ public class CasePlateau {
      * rien.
      */
     public void eteindreCase(){
-        if (this.etat==1){
-            this.etat=0;
-        }
+        this.etat=0;
+    }
+    
+    /**
+     * Cette méthode permet de positionner le cavalier sur la case en faisant 
+     * passer son état a une valeure de 2.
+     */
+    public void positionnerCavalier(){
+        this.etat=2;
     }
     
     /**
