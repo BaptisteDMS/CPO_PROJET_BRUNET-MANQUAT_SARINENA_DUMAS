@@ -28,9 +28,7 @@ public class CasePlateau {
      * rien.
      */
     public void activerCase(){
-        if (this.etat!=1){
-            this.etat=1;
-        }
+        this.etat=1;      
     }
     
     /**

@@ -110,76 +110,92 @@ public class PlateauDeJeu {
     }
     
     public void DeplacerCavalier(int option){
-        if (option==1){
+        if (option==0){
             // deplacemment Nord 1 (haut puis gauche)
-            int nv_position_vert=this.position_verticale+2;
+            int nv_position_vert=this.position_verticale-2;
             int nv_position_hor=this.position_horizontale-1;
             if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
+            }
+            
+        }else if (option==1){
+            // deplacemment Nord 2 (haut puis droite)
+            int nv_position_vert=this.position_verticale-2;
+            int nv_position_hor=this.position_horizontale+1;
+            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
             }
             
         }else if (option==2){
-            // deplacemment Nord 2 (haut puis droite)
+            // deplacemment Sud 1 (bas puis gauche)
+            int nv_position_vert=this.position_verticale+2;
+            int nv_position_hor=this.position_horizontale-1;
+            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
+            }
+            
+        }else if (option==3){
+            // deplacemment Sud 2 (bas puis droite)
             int nv_position_vert=this.position_verticale+2;
             int nv_position_hor=this.position_horizontale+1;
             if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-            }
-            
-        }else if (option==3){
-            // deplacemment Sud 1 (bas puis gauche)
-            int nv_position_vert=this.position_verticale-2;
-            int nv_position_hor=this.position_horizontale-1;
-            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
             }
             
         }else if (option==4){
-            // deplacemment Sud 2 (bas puis droite)
-            int nv_position_vert=this.position_verticale-2;
-            int nv_position_hor=this.position_horizontale+1;
-            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-            }
-            
-        }else if (option==5){
             // deplacemment Ouest 1 (gauche puis haut)
-            int nv_position_vert=this.position_verticale+1;
-            int nv_position_hor=this.position_horizontale-2;
-            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-            }
-            
-        }else if (option==6){
-            // deplacemment Ouest 2 (gauche puis bas)
             int nv_position_vert=this.position_verticale-1;
             int nv_position_hor=this.position_horizontale-2;
             if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
             }
             
-        }else if (option==7){
-            // deplacemment Est 1 (droite puis haut)
+        }else if (option==5){
+            // deplacemment Ouest 2 (gauche puis bas)
             int nv_position_vert=this.position_verticale+1;
+            int nv_position_hor=this.position_horizontale-2;
+            if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
+            }
+            
+        }else if (option==6){
+            // deplacemment Est 1 (droite puis haut)
+            int nv_position_vert=this.position_verticale-1;
             int nv_position_hor=this.position_horizontale+2;
             if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
             }
             
         }else{
             // deplacemment Est 2 (droite puis bas)
-            int nv_position_vert=this.position_verticale-1;
+            int nv_position_vert=this.position_verticale+1;
             int nv_position_hor=this.position_horizontale+2;
             if (nv_position_vert<this.nbLignes && nv_position_vert>(-1) && nv_position_hor<this.nbColonnes && nv_position_hor>(-1)){
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale=nv_position_hor;
+                this.position_verticale=nv_position_vert;
             }
         }
     }

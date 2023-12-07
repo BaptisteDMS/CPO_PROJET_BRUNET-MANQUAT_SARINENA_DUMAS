@@ -13,7 +13,9 @@ public class LaChevauchéeFantastique {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Partie game1=new Partie();
+        game1.initialiserPartie();
+        game1.lancerPartie();
     }
     
 }
