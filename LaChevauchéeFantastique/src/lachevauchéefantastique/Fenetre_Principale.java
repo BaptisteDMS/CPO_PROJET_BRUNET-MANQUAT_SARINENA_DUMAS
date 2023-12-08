@@ -3,6 +3,11 @@ LA CHEVAUCHEE FANTASTIQUE, 13/11/2023, SARINENA-DUMAS-BRUNET MANQUAT
  */
 package lachevauchéefantastique;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+
 /**
  *
  * @author pierr
@@ -10,16 +15,36 @@ package lachevauchéefantastique;
 public class Fenetre_Principale extends javax.swing.JFrame {
 
     PlateauDeJeu plateau;
-    int nbColonnes;
-    int nbLignes;
-    
-    
+    int nbCoups;
     /**
      * Creates new form Fenetre_Principale
      */
     public Fenetre_Principale() {
         initComponents();
+
+        int nbLignes = 5;
+        int nbColonnes = 5;
+        this.plateau = new PlateauDeJeu(nbLignes, nbColonnes,0,0);
+        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+        // Définir le gestionnaire de disposition pour le contenu principal
+        getContentPane().setLayout(new GridBagLayout());
         
+        // Créer GridBagConstraints pour centrer le PanneauGrille
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = GridBagConstraints.CENTER;
+        gbc.gridy = GridBagConstraints.CENTER;
+        getContentPane().add(PanneauGrille, gbc);// Ajouter PanneauGrille au contenu principal avec les contraintes spécifiées
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                JButton bouton_cellule = new JButton();
+                PanneauGrille.add(bouton_cellule);
+            }
+        }
+    }
+
+    public void initialiserPartie() {
+        plateau.eteindreToutesLesCases();
+        plateau.melangerMatriceAleatoirement(10);
     }
 
     /**
@@ -31,18 +56,27 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PanneauGrille = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanneauGrille.setBackground(new java.awt.Color(204, 204, 204));
+        PanneauGrille.setPreferredSize(new java.awt.Dimension(600, 600));
+
+        javax.swing.GroupLayout PanneauGrilleLayout = new javax.swing.GroupLayout(PanneauGrille);
+        PanneauGrille.setLayout(PanneauGrilleLayout);
+        PanneauGrilleLayout.setHorizontalGroup(
+            PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        PanneauGrilleLayout.setVerticalGroup(
+            PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
+
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,5 +117,6 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanneauGrille;
     // End of variables declaration//GEN-END:variables
 }
