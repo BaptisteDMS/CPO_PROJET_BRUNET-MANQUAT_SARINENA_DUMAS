@@ -20,7 +20,17 @@ public class Partie {
         this.nbCoups = 0;
     }
     
-    public void initialiserPartie(){
+    public void initialiserPartie(int Difficulte, int ModeJeu){
+        if (ModeJeu==0){
+            if (Difficulte==0){
+                this.plateau=new PlateauDeJeu(5,5,3,3);
+                this.plateau.melangerMatriceAleatoirement(5);
+            }
+        }else if (ModeJeu==1){
+            
+        }else{
+            
+        }
         this.plateau=new PlateauDeJeu(8,8,0,0);
         this.plateau.melangerMatriceAleatoirement(5);
     }
@@ -41,8 +51,17 @@ public class Partie {
         System.out.println("\nVous avez réussi !\nVotre nombre de coups est de : "+this.nbCoups);
     }
     
-    //public int SelectionDifficulte(){
-        
-        //return 
-    //}
+    public int SelectionDifficulte(){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Selectionnez la difficulté. (0 => Facile ; 1 => Moyenne ; 2 => Speedrun ; 3 => Chrono ; 4 => Sandbox)");
+        int difficulte=sc.nextInt(5);
+        return difficulte;
+    }
+    
+    public int SelectionModeJeu(){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Selectionnez le mode de jeu. (0 => Déplacement libre ; 1 => Déplacement fantastique ; 2 => Enigme)");
+        int modejeu=sc.nextInt(3);
+        return modejeu;
+    }
 }
