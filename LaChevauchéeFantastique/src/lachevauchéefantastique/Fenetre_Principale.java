@@ -16,35 +16,61 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     PlateauDeJeu plateau;
     int nbCoups;
+    int nbLignes;
+    int nbColonnes;
+    int nbCoupsMAX;
     /**
      * Creates new form Fenetre_Principale
      */
     public Fenetre_Principale() {
         initComponents();
+        nbLignes = 5;
+        nbColonnes = 5;
+        CreationGrille();
+        initialiserPartie();
+        
+    }
+    
+    public void CreationGrille(){
+        
 
-        int nbLignes = 5;
-        int nbColonnes = 5;
-        this.plateau = new PlateauDeJeu(nbLignes, nbColonnes,0,0);
+        this.plateau = new PlateauDeJeu(nbLignes, nbColonnes,2,2);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
         // Définir le gestionnaire de disposition pour le contenu principal
         getContentPane().setLayout(new GridBagLayout());
-        
-        // Créer GridBagConstraints pour centrer le PanneauGrille
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = GridBagConstraints.CENTER;
         gbc.gridy = GridBagConstraints.CENTER;
         getContentPane().add(PanneauGrille, gbc);// Ajouter PanneauGrille au contenu principal avec les contraintes spécifiées
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
-                JButton bouton_cellule = new JButton();
-                PanneauGrille.add(bouton_cellule);
+                JButton Cellule_Graphique = new Cellule_Graphique( plateau.matriceCase[i][j], 36,36);
+                PanneauGrille.add(Cellule_Graphique);
             }
         }
+        
     }
 
     public void initialiserPartie() {
         plateau.eteindreToutesLesCases();
         plateau.melangerMatriceAleatoirement(10);
+    }
+    
+    public void FinDePartie(){
+        if (nbCoups >= nbCoupsMAX) {
+            this.dispose();
+            Fenetre_Perdant r = new Fenetre_Perdant();
+            r.setVisible(true);
+
+        } else {
+            if (this.plateau.CaseToutesEteintes()==true) {
+                System.out.println(nbCoups);
+                this.dispose();
+                Fenetre_Victoire f = new Fenetre_Victoire();
+                f.setVisible(true);
+                
+            }
+        }
     }
 
     /**
