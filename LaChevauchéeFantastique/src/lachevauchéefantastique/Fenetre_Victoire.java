@@ -25,18 +25,24 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 204, 0));
+        setEnabled(false);
+        setPreferredSize(new java.awt.Dimension(690, 385));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Shrek", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 204, 0));
+        jLabel2.setText("T'es pas mouru l'Ane, t'es pas mouru !");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 410, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\bapti\\Desktop\\algo\\Projet_CPO_DUMAS_SARINENA_BM\\r7s6k_opSqS3P_QujXAX3DhR7Wo.jpg")); // NOI18N
+        jLabel1.setText("BRAVOOOOOOO !!!!!!");
+        jLabel1.setToolTipText("");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 681, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,5 +83,7 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
