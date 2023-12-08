@@ -40,4 +40,9 @@ public class Partie {
         
         System.out.println("\nVous avez réussi !\nVotre nombre de coups est de : "+this.nbCoups);
     }
+    
+    //public int SelectionDifficulte(){
+        
+        //return 
+    //}
 }
