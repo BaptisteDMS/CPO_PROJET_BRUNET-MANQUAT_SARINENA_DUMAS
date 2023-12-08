@@ -93,6 +93,111 @@ public class PlateauDeJeu {
             activerCaseAleatoire();
         }
     }
+    
+    public void activerCaseAleatoireFantastique(){
+        int nb_alea;
+        int position_vert_variable=this.position_verticale;
+        int position_hor_variable=this.position_horizontale;
+        int mouv_interdit=-1;
+        int activationCase=0;
+        Random generateurAleat = new Random();
+        nb_alea = generateurAleat.nextInt(8);
+        
+        
+        while (activationCase==0){
+            
+        }
+        if (nb_alea == 0) {
+            // deplacemment Nord 1 (haut puis gauche)
+            int position_vert_test = position_vert_variable - 2;
+            int position_hor_test = position_hor_variable - 1;
+            if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)) {
+                this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                position_hor_variable = position_hor_test;
+                position_vert_variable = position_vert_test;
+                mouv_interdit=3;
+                activationCase+=1;
+            }
+
+        } else if (nb_alea == 1) {
+            // deplacemment Nord 2 (haut puis droite)
+            int nv_position_vert = this.position_verticale - 2;
+            int nv_position_hor = this.position_horizontale + 1;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+
+        } else if (nb_alea == 2) {
+            // deplacemment Sud 1 (bas puis gauche)
+            int nv_position_vert = this.position_verticale + 2;
+            int nv_position_hor = this.position_horizontale - 1;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+
+        } else if (nb_alea == 3) {
+            // deplacemment Sud 2 (bas puis droite)
+            int nv_position_vert = this.position_verticale + 2;
+            int nv_position_hor = this.position_horizontale + 1;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+
+        } else if (nb_alea == 4) {
+            // deplacemment Ouest 1 (gauche puis haut)
+            int nv_position_vert = this.position_verticale - 1;
+            int nv_position_hor = this.position_horizontale - 2;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+
+        } else if (nb_alea == 5) {
+            // deplacemment Ouest 2 (gauche puis bas)
+            int nv_position_vert = this.position_verticale + 1;
+            int nv_position_hor = this.position_horizontale - 2;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+
+        } else if (nb_alea == 6) {
+            // deplacemment Est 1 (droite puis haut)
+            int nv_position_vert = this.position_verticale - 1;
+            int nv_position_hor = this.position_horizontale + 2;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+
+        } else {
+            // deplacemment Est 2 (droite puis bas)
+            int nv_position_vert = this.position_verticale + 1;
+            int nv_position_hor = this.position_horizontale + 2;
+            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
+                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
+                this.position_horizontale = nv_position_hor;
+                this.position_verticale = nv_position_vert;
+            }
+        }
+        
+    }
 
     /**
      * Permet de vérifier si toutes les cases du plateau sont éteintes. Elle

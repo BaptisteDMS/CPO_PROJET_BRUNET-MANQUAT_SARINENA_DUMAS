@@ -50,9 +50,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\bapti\Desktop\algo\Projet_CPO_DUMAS_SARINENA_BM\r7s6k_opSqS3P_QujXAX3DhR7Wo.jpg"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="BRAVOOOOOOO !!!!!!"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>

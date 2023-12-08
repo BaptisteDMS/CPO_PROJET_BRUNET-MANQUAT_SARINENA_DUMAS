@@ -22,7 +22,19 @@ public class Partie {
     
     public void initialiserPartie(int Difficulte, int ModeJeu){
         if (ModeJeu==0){
-            if (Difficulte==0){
+            if (Difficulte==0){ // Facile
+                this.plateau=new PlateauDeJeu(5,5,2,2);
+                this.plateau.melangerMatriceAleatoirement(5);
+            }else if (Difficulte==1) { //Moyen
+                this.plateau=new PlateauDeJeu(9,9,4,4);
+                this.plateau.melangerMatriceAleatoirement(5);
+            }else if (Difficulte==2){ // Speedrun
+                this.plateau=new PlateauDeJeu(9,9,4,4);
+                this.plateau.melangerMatriceAleatoirement(10);
+            }else if (Difficulte==3){ // Chrono
+                this.plateau=new PlateauDeJeu(9,9,4,4);
+                this.plateau.melangerMatriceAleatoirement(10);
+            }else { // Sandbox
                 this.plateau=new PlateauDeJeu(5,5,3,3);
                 this.plateau.melangerMatriceAleatoirement(5);
             }
@@ -31,8 +43,6 @@ public class Partie {
         }else{
             
         }
-        this.plateau=new PlateauDeJeu(8,8,0,0);
-        this.plateau.melangerMatriceAleatoirement(5);
     }
     
     public void lancerPartie(){
