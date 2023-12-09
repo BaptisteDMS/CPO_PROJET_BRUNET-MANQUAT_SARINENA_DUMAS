@@ -3,6 +3,8 @@
  */
 package lachevauchéefantastique;
 
+import java.awt.Color;
+
 /**
  * Cette classe représente une case du damier qui peut être
  * dans l'état "allumée" ou "éteinte" ou "cavalier dessus".
@@ -91,4 +93,8 @@ public class CasePlateau {
             return "C";
         }
     } 
+
+    void setColor(Color white) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

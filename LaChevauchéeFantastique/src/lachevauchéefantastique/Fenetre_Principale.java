@@ -3,6 +3,7 @@ LA CHEVAUCHEE FANTASTIQUE, 13/11/2023, SARINENA-DUMAS-BRUNET MANQUAT
  */
 package lachevauchéefantastique;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -19,6 +20,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     int nbLignes;
     int nbColonnes;
     int nbCoupsMAX;
+
     /**
      * Creates new form Fenetre_Principale
      */
@@ -28,13 +30,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         nbColonnes = 5;
         CreationGrille();
         initialiserPartie();
-        
-    }
-    
-    public void CreationGrille(){
-        
+        FinDePartie();
 
-        this.plateau = new PlateauDeJeu(nbLignes, nbColonnes,2,2);
+    }
+
+    public void CreationGrille() {
+
+        this.plateau = new PlateauDeJeu(nbLignes, nbColonnes, 2, 2);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
         // Définir le gestionnaire de disposition pour le contenu principal
         getContentPane().setLayout(new GridBagLayout());
@@ -44,32 +46,25 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         getContentPane().add(PanneauGrille, gbc);// Ajouter PanneauGrille au contenu principal avec les contraintes spécifiées
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
-                JButton Cellule_Graphique = new Cellule_Graphique( plateau.matriceCase[i][j], 36,36);
+                JButton Cellule_Graphique = new Cellule_Graphique(plateau.matriceCase[i][j], 36, 36);
                 PanneauGrille.add(Cellule_Graphique);
             }
         }
-        
+
     }
 
     public void initialiserPartie() {
         plateau.eteindreToutesLesCases();
-        plateau.melangerMatriceAleatoirement(10);
+        plateau.melangerMatriceAleatoirement(2);
     }
-    
-    public void FinDePartie(){
-        if (nbCoups >= nbCoupsMAX) {
-            this.dispose();
-            Fenetre_Perdant r = new Fenetre_Perdant();
-            r.setVisible(true);
 
-        } else {
-            if (this.plateau.CaseToutesEteintes()==true) {
-                System.out.println(nbCoups);
-                this.dispose();
-                Fenetre_Victoire f = new Fenetre_Victoire();
-                f.setVisible(true);
-                
-            }
+    public void FinDePartie() {
+        if (this.plateau.CaseToutesEteintes() == true) {
+            System.out.println(nbCoups);
+            this.dispose();
+            Fenetre_Victoire f = new Fenetre_Victoire();
+            f.setVisible(true);
+
         }
     }
 
@@ -83,9 +78,21 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
+        Bouton_HautGauche = new javax.swing.JButton();
+        Bouton_HautDroite = new javax.swing.JButton();
+        Bouton_BasGauche = new javax.swing.JButton();
+        Bouton_BasDroite = new javax.swing.JButton();
+        Bouton_GaucheHaut = new javax.swing.JButton();
+        Bouton_GaucheBas = new javax.swing.JButton();
+        Bouton_DroiteHaut = new javax.swing.JButton();
+        Bouton_DroiteBas = new javax.swing.JButton();
+        PanneauBoutonHAUT = new javax.swing.JPanel();
+        PanneauBoutonGAUCHE = new javax.swing.JPanel();
+        PanneauBoutonDROITE = new javax.swing.JPanel();
+        PanneauBoutonBAS = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanneauGrille.setBackground(new java.awt.Color(204, 204, 204));
@@ -99,13 +106,191 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        Bouton_HautGauche.setText("N1");
+        Bouton_HautGauche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_HautGaucheActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_HautGauche, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
+
+        Bouton_HautDroite.setText("N2");
+        Bouton_HautDroite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_HautDroiteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_HautDroite, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, -1, -1));
+
+        Bouton_BasGauche.setText("S1");
+        Bouton_BasGauche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_BasGaucheActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_BasGauche, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, -1, -1));
+
+        Bouton_BasDroite.setText("S2");
+        Bouton_BasDroite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_BasDroiteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_BasDroite, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, -1, -1));
+
+        Bouton_GaucheHaut.setText("O1");
+        Bouton_GaucheHaut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_GaucheHautActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_GaucheHaut, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+
+        Bouton_GaucheBas.setText("O2");
+        Bouton_GaucheBas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_GaucheBasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_GaucheBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
+
+        Bouton_DroiteHaut.setText("E1");
+        Bouton_DroiteHaut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_DroiteHautActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_DroiteHaut, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, -1, -1));
+
+        Bouton_DroiteBas.setText("E2");
+        Bouton_DroiteBas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_DroiteBasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bouton_DroiteBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, -1, -1));
+
+        PanneauBoutonHAUT.setBackground(new java.awt.Color(0, 51, 255));
+
+        javax.swing.GroupLayout PanneauBoutonHAUTLayout = new javax.swing.GroupLayout(PanneauBoutonHAUT);
+        PanneauBoutonHAUT.setLayout(PanneauBoutonHAUTLayout);
+        PanneauBoutonHAUTLayout.setHorizontalGroup(
+            PanneauBoutonHAUTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        PanneauBoutonHAUTLayout.setVerticalGroup(
+            PanneauBoutonHAUTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 150, 50));
+
+        PanneauBoutonGAUCHE.setBackground(new java.awt.Color(0, 51, 255));
+
+        javax.swing.GroupLayout PanneauBoutonGAUCHELayout = new javax.swing.GroupLayout(PanneauBoutonGAUCHE);
+        PanneauBoutonGAUCHE.setLayout(PanneauBoutonGAUCHELayout);
+        PanneauBoutonGAUCHELayout.setHorizontalGroup(
+            PanneauBoutonGAUCHELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+        PanneauBoutonGAUCHELayout.setVerticalGroup(
+            PanneauBoutonGAUCHELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, 60, 140));
+
+        PanneauBoutonDROITE.setBackground(new java.awt.Color(0, 51, 255));
+
+        javax.swing.GroupLayout PanneauBoutonDROITELayout = new javax.swing.GroupLayout(PanneauBoutonDROITE);
+        PanneauBoutonDROITE.setLayout(PanneauBoutonDROITELayout);
+        PanneauBoutonDROITELayout.setHorizontalGroup(
+            PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+        PanneauBoutonDROITELayout.setVerticalGroup(
+            PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 200, 60, 140));
+
+        PanneauBoutonBAS.setBackground(new java.awt.Color(0, 51, 255));
+
+        javax.swing.GroupLayout PanneauBoutonBASLayout = new javax.swing.GroupLayout(PanneauBoutonBAS);
+        PanneauBoutonBAS.setLayout(PanneauBoutonBASLayout);
+        PanneauBoutonBASLayout.setHorizontalGroup(
+            PanneauBoutonBASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        PanneauBoutonBASLayout.setVerticalGroup(
+            PanneauBoutonBASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 130, 50));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Bouton_HautGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautGaucheActionPerformed
+        this.plateau.DeplacerCavalier(0);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_HautGaucheActionPerformed
+
+    private void Bouton_BasDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasDroiteActionPerformed
+        this.plateau.DeplacerCavalier(3);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_BasDroiteActionPerformed
+
+    private void Bouton_HautDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautDroiteActionPerformed
+        this.plateau.DeplacerCavalier(1);
+        repaint();
+    }//GEN-LAST:event_Bouton_HautDroiteActionPerformed
+
+    private void Bouton_BasGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasGaucheActionPerformed
+        this.plateau.DeplacerCavalier(2);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_BasGaucheActionPerformed
+
+    private void Bouton_GaucheHautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_GaucheHautActionPerformed
+        this.plateau.DeplacerCavalier(4);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_GaucheHautActionPerformed
+
+    private void Bouton_GaucheBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_GaucheBasActionPerformed
+        this.plateau.DeplacerCavalier(5);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_GaucheBasActionPerformed
+
+    private void Bouton_DroiteHautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_DroiteHautActionPerformed
+        this.plateau.DeplacerCavalier(6);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_DroiteHautActionPerformed
+
+    private void Bouton_DroiteBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_DroiteBasActionPerformed
+        this.plateau.DeplacerCavalier(7);
+        repaint();
+        FinDePartie();
+
+    }//GEN-LAST:event_Bouton_DroiteBasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +328,18 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bouton_BasDroite;
+    private javax.swing.JButton Bouton_BasGauche;
+    private javax.swing.JButton Bouton_DroiteBas;
+    private javax.swing.JButton Bouton_DroiteHaut;
+    private javax.swing.JButton Bouton_GaucheBas;
+    private javax.swing.JButton Bouton_GaucheHaut;
+    private javax.swing.JButton Bouton_HautDroite;
+    private javax.swing.JButton Bouton_HautGauche;
+    private javax.swing.JPanel PanneauBoutonBAS;
+    private javax.swing.JPanel PanneauBoutonDROITE;
+    private javax.swing.JPanel PanneauBoutonGAUCHE;
+    private javax.swing.JPanel PanneauBoutonHAUT;
     private javax.swing.JPanel PanneauGrille;
     // End of variables declaration//GEN-END:variables
 }

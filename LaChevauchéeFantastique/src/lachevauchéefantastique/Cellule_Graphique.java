@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
 
+
 /**
  *
  * @author pierr
@@ -32,14 +33,14 @@ public class Cellule_Graphique extends JButton {
         this.setText(celluleLumineuseAssociee.toString());
         int w = this.getWidth();
         int h = this.getHeight();
-       
-        if (!celluleLumineuseAssociee.estEteint()) {
-            g.setColor(Color.yellow);
-            int diametre = Math.min(w - 80, h - 80); // Calcul du diamètre du cercle
-            int x = 2 + (w - diametre) / 2; // Calcul de la coordonnée x pour centrer le cercle
-            int y = 2 + (h - diametre) / 2; // Calcul de la coordonnée y pour centrer le cercle
-            g.fillOval(x, y, diametre, diametre);
-        }
-    }
 
-}
+            if (!celluleLumineuseAssociee.estEteint()) {
+                g.setColor(Color.yellow);
+                int diametre = Math.min(w - 80, h - 80); // Calcul du diamètre du cercle
+                int x = 2 + (w - diametre) / 2; // Calcul de la coordonnée x pour centrer le cercle
+                int y = 2 + (h - diametre) / 2; // Calcul de la coordonnée y pour centrer le cercle
+                g.fillOval(x, y, diametre, diametre);
+            }
+        }
+
+    }
