@@ -39,9 +39,11 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
         jLabel2.setText("T'es pas mouru l'Ane, t'es pas mouru !");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 410, 60));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/r7s6k_opSqS3P_QujXAX3DhR7Wo.jpg"))); // NOI18N
         jLabel1.setText("BRAVOOOOOOO !!!!!!");
         jLabel1.setToolTipText("");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 681, -1));
+        jLabel1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
