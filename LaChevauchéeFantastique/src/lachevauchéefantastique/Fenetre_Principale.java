@@ -58,7 +58,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
-                JButton Cellule_Graphique = new Cellule_Graphique(plateau.matriceCase[i][j], 36, 36);
+                JButton Cellule_Graphique = new Cellule_Graphique(plateau.matriceCase[i][j], 36, 36, true);
                 PanneauGrille.add(Cellule_Graphique);
             }
         }
