@@ -20,6 +20,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     int nbLignes;
     int nbColonnes;
     int nbCoupsMAX;
+    int nbTouche;
 
     /**
      * Creates new form Fenetre_Principale
@@ -28,8 +29,25 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         initComponents();
         nbLignes = 5;
         nbColonnes = 5;
+        nbTouche = 2;
         CreationGrille();
         initialiserPartie();
+        PanneauBoutonHAUT.setLayout(new GridLayout(nbTouche, 1));
+        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, nbTouche * 40, 1 * 80));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonGAUCHE.setLayout(new GridLayout(1, nbTouche));
+        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, 1 * 100, nbTouche * 25));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonDROITE.setLayout(new GridLayout(nbTouche, 1));
+        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, nbTouche * 40, 1 * 80));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonBAS.setLayout(new GridLayout(1, nbTouche));
+        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 180, 1 * 100, nbTouche * 25));
+        this.pack();
+        this.revalidate();
         FinDePartie();
 
     }
@@ -38,12 +56,6 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         this.plateau = new PlateauDeJeu(nbLignes, nbColonnes, 2, 2);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
-        // Définir le gestionnaire de disposition pour le contenu principal
-        getContentPane().setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = GridBagConstraints.CENTER;
-        gbc.gridy = GridBagConstraints.CENTER;
-        getContentPane().add(PanneauGrille, gbc);// Ajouter PanneauGrille au contenu principal avec les contraintes spécifiées
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
                 JButton Cellule_Graphique = new Cellule_Graphique(plateau.matriceCase[i][j], 36, 36);
@@ -83,13 +95,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         Bouton_GaucheBas = new javax.swing.JButton();
         PanneauBoutonGAUCHE = new javax.swing.JPanel();
         Bouton_HautGauche = new javax.swing.JButton();
-        Bouton_BasGauche = new javax.swing.JButton();
-        PanneauBoutonDROITE = new javax.swing.JPanel();
         Bouton_HautDroite = new javax.swing.JButton();
-        Bouton_BasDroite = new javax.swing.JButton();
-        PanneauBoutonBAS = new javax.swing.JPanel();
+        PanneauBoutonDROITE = new javax.swing.JPanel();
         Bouton_DroiteHaut = new javax.swing.JButton();
         Bouton_DroiteBas = new javax.swing.JButton();
+        PanneauBoutonBAS = new javax.swing.JPanel();
+        Bouton_BasDroite = new javax.swing.JButton();
+        Bouton_BasGauche = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 1300));
@@ -106,7 +118,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
@@ -133,22 +145,22 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             PanneauBoutonHAUTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanneauBoutonHAUTLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Bouton_GaucheHaut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(Bouton_GaucheBas)
-                .addContainerGap())
+                .addGroup(PanneauBoutonHAUTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Bouton_GaucheHaut)
+                    .addComponent(Bouton_GaucheBas))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         PanneauBoutonHAUTLayout.setVerticalGroup(
             PanneauBoutonHAUTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanneauBoutonHAUTLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanneauBoutonHAUTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Bouton_GaucheHaut)
-                    .addComponent(Bouton_GaucheBas))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(Bouton_GaucheHaut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(Bouton_GaucheBas)
+                .addGap(16, 16, 16))
         );
 
-        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 200, 50));
+        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 90, 110));
 
         PanneauBoutonGAUCHE.setBackground(new java.awt.Color(0, 51, 255));
 
@@ -159,10 +171,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             }
         });
 
-        Bouton_BasGauche.setText("S1");
-        Bouton_BasGauche.addActionListener(new java.awt.event.ActionListener() {
+        Bouton_HautDroite.setText("N2");
+        Bouton_HautDroite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bouton_BasGaucheActionPerformed(evt);
+                Bouton_HautDroiteActionPerformed(evt);
             }
         });
 
@@ -172,61 +184,23 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             PanneauBoutonGAUCHELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanneauBoutonGAUCHELayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanneauBoutonGAUCHELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Bouton_HautGauche)
-                    .addComponent(Bouton_BasGauche))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Bouton_HautGauche)
+                .addGap(18, 18, 18)
+                .addComponent(Bouton_HautDroite)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         PanneauBoutonGAUCHELayout.setVerticalGroup(
             PanneauBoutonGAUCHELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanneauBoutonGAUCHELayout.createSequentialGroup()
-                .addComponent(Bouton_HautGauche)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(Bouton_BasGauche)
-                .addGap(14, 14, 14))
+                .addGroup(PanneauBoutonGAUCHELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Bouton_HautGauche)
+                    .addComponent(Bouton_HautDroite))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, 90, 140));
+        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, 180, 40));
 
         PanneauBoutonDROITE.setBackground(new java.awt.Color(0, 51, 255));
-
-        Bouton_HautDroite.setText("N2");
-        Bouton_HautDroite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bouton_HautDroiteActionPerformed(evt);
-            }
-        });
-
-        Bouton_BasDroite.setText("S2");
-        Bouton_BasDroite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bouton_BasDroiteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanneauBoutonDROITELayout = new javax.swing.GroupLayout(PanneauBoutonDROITE);
-        PanneauBoutonDROITE.setLayout(PanneauBoutonDROITELayout);
-        PanneauBoutonDROITELayout.setHorizontalGroup(
-            PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanneauBoutonDROITELayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Bouton_HautDroite, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Bouton_BasDroite, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        PanneauBoutonDROITELayout.setVerticalGroup(
-            PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanneauBoutonDROITELayout.createSequentialGroup()
-                .addComponent(Bouton_HautDroite)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(Bouton_BasDroite)
-                .addGap(18, 18, 18))
-        );
-
-        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 90, 140));
-
-        PanneauBoutonBAS.setBackground(new java.awt.Color(0, 51, 255));
 
         Bouton_DroiteHaut.setText("E1");
         Bouton_DroiteHaut.addActionListener(new java.awt.event.ActionListener() {
@@ -242,15 +216,54 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout PanneauBoutonDROITELayout = new javax.swing.GroupLayout(PanneauBoutonDROITE);
+        PanneauBoutonDROITE.setLayout(PanneauBoutonDROITELayout);
+        PanneauBoutonDROITELayout.setHorizontalGroup(
+            PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanneauBoutonDROITELayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Bouton_DroiteHaut)
+                    .addComponent(Bouton_DroiteBas))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        PanneauBoutonDROITELayout.setVerticalGroup(
+            PanneauBoutonDROITELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanneauBoutonDROITELayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Bouton_DroiteHaut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(Bouton_DroiteBas)
+                .addGap(20, 20, 20))
+        );
+
+        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 80, 90, 110));
+
+        PanneauBoutonBAS.setBackground(new java.awt.Color(0, 51, 255));
+
+        Bouton_BasDroite.setText("S2");
+        Bouton_BasDroite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_BasDroiteActionPerformed(evt);
+            }
+        });
+
+        Bouton_BasGauche.setText("S1");
+        Bouton_BasGauche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bouton_BasGaucheActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanneauBoutonBASLayout = new javax.swing.GroupLayout(PanneauBoutonBAS);
         PanneauBoutonBAS.setLayout(PanneauBoutonBASLayout);
         PanneauBoutonBASLayout.setHorizontalGroup(
             PanneauBoutonBASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanneauBoutonBASLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanneauBoutonBASLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Bouton_DroiteHaut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(Bouton_DroiteBas)
+                .addComponent(Bouton_BasGauche)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(Bouton_BasDroite)
                 .addContainerGap())
         );
         PanneauBoutonBASLayout.setVerticalGroup(
@@ -258,12 +271,12 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             .addGroup(PanneauBoutonBASLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanneauBoutonBASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Bouton_DroiteHaut)
-                    .addComponent(Bouton_DroiteBas))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(Bouton_BasDroite)
+                    .addComponent(Bouton_BasGauche))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 200, 50));
+        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 180, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
