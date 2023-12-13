@@ -15,7 +15,6 @@ public class LaChevauchéeFantastique {
     public static void main(String[] args) {
         Partie game1=new Partie();
         game1.initialiserPartie(0,0);
-        game1.lancerPartie();
     }
     
 }

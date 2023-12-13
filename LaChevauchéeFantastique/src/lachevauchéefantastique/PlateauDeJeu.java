@@ -93,118 +93,128 @@ public class PlateauDeJeu {
             activerCaseAleatoire();
         }
     }
-    
-    public void activerCaseAleatoireFantastique(){
+
+    public void activerCaseAleatoireFantastique(int nb_melange) {
         int nb_alea;
-        int position_vert_variable=this.position_verticale;
-        int position_hor_variable=this.position_horizontale;
-        int mouv_interdit=-1;
-        int activationCase=0;
+        int position_vert_variable = this.position_verticale;
+        int position_hor_variable = this.position_horizontale;
+        int mouv_interdit = -1;
+        int activationCase = 0;
+        int nb_activation = 0;
         Random generateurAleat = new Random();
-        nb_alea = generateurAleat.nextInt(8);
-        
-        
-        while (activationCase==0){
-            
+
+        while (nb_activation < nb_melange) {
+            activationCase = 0;
+            while (activationCase == 0) {
+                nb_alea = generateurAleat.nextInt(8);
+                if (nb_alea == 0 && mouv_interdit != 0) {
+                    // deplacemment Nord 1 (haut puis gauche)
+                    int position_vert_test = position_vert_variable - 2;
+                    int position_hor_test = position_hor_variable - 1;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1) && matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 3;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+            }else if (nb_alea == 1 && mouv_interdit != 1) {
+                    // deplacemment Nord 2 (haut puis droite)
+                    int position_vert_test = position_vert_variable - 2;
+                    int position_hor_test = position_hor_variable + 1;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1) && matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 2;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                } else if (nb_alea == 2 && mouv_interdit != 2) {
+                    // deplacement Sud 1 (bas puis gauche)
+                    int position_vert_test = position_vert_variable + 2;
+                    int position_hor_test = position_hor_variable - 1;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)&& matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 1;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                } else if (nb_alea == 3 && mouv_interdit != 3) {
+                    // deplacement Sud 2 (bas puis droite)
+                    int position_vert_test = position_vert_variable + 2;
+                    int position_hor_test = position_hor_variable + 1;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)&& matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 0;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                } else if (nb_alea == 4 && mouv_interdit != 4) {
+                    // deplacement Ouest 1 (gauche puis haut)
+                    int position_vert_test = position_vert_variable - 1;
+                    int position_hor_test = position_hor_variable - 2;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)&& matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 7;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                } else if (nb_alea == 5 && mouv_interdit != 5) {
+                    // deplacement Ouest 2 (gauche puis bas)
+                    int position_vert_test = position_vert_variable + 1;
+                    int position_hor_test = position_hor_variable - 2;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)&& matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 6;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                } else if (nb_alea == 6 && mouv_interdit != 6) {
+                    // deplacement Est 1 (droite puis haut)
+                    int position_vert_test = position_vert_variable - 1;
+                    int position_hor_test = position_hor_variable + 2;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)&& matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 5;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                } else if (nb_alea == 7 && mouv_interdit != 7) {
+                    // deplacement Est 2 (droite puis bas)
+                    int position_vert_test = position_vert_variable + 1;
+                    int position_hor_test = position_hor_variable + 2;
+                    if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)&& matriceCase[position_vert_test][position_hor_test].getEtat() == 0) {
+                        this.matriceCase[position_vert_test][position_hor_test].activerCase();
+                        position_hor_variable = position_hor_test;
+                        position_vert_variable = position_vert_test;
+                        mouv_interdit = 4;
+                        activationCase += 1;
+                        matriceCase[position_vert_test][position_hor_test].activerCase();
+                    }
+                }
         }
-        if (nb_alea == 0) {
-            // deplacemment Nord 1 (haut puis gauche)
-            int position_vert_test = position_vert_variable - 2;
-            int position_hor_test = position_hor_variable - 1;
-            if (position_vert_test < this.nbLignes && position_vert_test > (-1) && position_hor_test < this.nbColonnes && position_hor_test > (-1)) {
-                this.matriceCase[position_vert_test][position_hor_test].activerCase();
-                position_hor_variable = position_hor_test;
-                position_vert_variable = position_vert_test;
-                mouv_interdit=3;
-                activationCase+=1;
-            }
-
-        } else if (nb_alea == 1) {
-            // deplacemment Nord 2 (haut puis droite)
-            int nv_position_vert = this.position_verticale - 2;
-            int nv_position_hor = this.position_horizontale + 1;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-
-        } else if (nb_alea == 2) {
-            // deplacemment Sud 1 (bas puis gauche)
-            int nv_position_vert = this.position_verticale + 2;
-            int nv_position_hor = this.position_horizontale - 1;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-
-        } else if (nb_alea == 3) {
-            // deplacemment Sud 2 (bas puis droite)
-            int nv_position_vert = this.position_verticale + 2;
-            int nv_position_hor = this.position_horizontale + 1;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-
-        } else if (nb_alea == 4) {
-            // deplacemment Ouest 1 (gauche puis haut)
-            int nv_position_vert = this.position_verticale - 1;
-            int nv_position_hor = this.position_horizontale - 2;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-
-        } else if (nb_alea == 5) {
-            // deplacemment Ouest 2 (gauche puis bas)
-            int nv_position_vert = this.position_verticale + 1;
-            int nv_position_hor = this.position_horizontale - 2;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-
-        } else if (nb_alea == 6) {
-            // deplacemment Est 1 (droite puis haut)
-            int nv_position_vert = this.position_verticale - 1;
-            int nv_position_hor = this.position_horizontale + 2;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-
-        } else {
-            // deplacemment Est 2 (droite puis bas)
-            int nv_position_vert = this.position_verticale + 1;
-            int nv_position_hor = this.position_horizontale + 2;
-            if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
-                this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
-                this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
-                this.position_horizontale = nv_position_hor;
-                this.position_verticale = nv_position_vert;
-            }
-        }
-        
+        nb_activation+=1;
     }
+}
 
-    /**
-     * Permet de vérifier si toutes les cases du plateau sont éteintes. Elle
-     * retourne true si toutes les cellules sont éteintes, et false sinon. Elle
-     * permet de tester même avec le cavalier.
-     */
-    public boolean CaseToutesEteintes() {
+/**
+ * Permet de vérifier si toutes les cases du plateau sont éteintes. Elle
+ * retourne true si toutes les cellules sont éteintes, et false sinon. Elle
+ * permet de tester même avec le cavalier.
+ */
+public boolean CaseToutesEteintes() {
         int verif = 0;
         for (int i = 0; i < this.nbLignes; i++) {
             for (int j = 0; j < this.nbColonnes; j++) {
@@ -220,13 +230,20 @@ public class PlateauDeJeu {
         }
     }
 
-    public void DeplacerCavalier(int option) {
+    public boolean DeplacerCavalier(int option) {
+        boolean case_eteinte;
+        case_eteinte=false;
         if (option == 0) {
             // deplacemment Nord 1 (haut puis gauche)
             int nv_position_vert = this.position_verticale - 2;
             int nv_position_hor = this.position_horizontale - 1;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -238,6 +255,11 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale + 1;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -249,6 +271,11 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale - 1;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -260,6 +287,11 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale + 1;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -271,6 +303,11 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale - 2;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -282,6 +319,11 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale - 2;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -293,6 +335,11 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale + 2;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
@@ -304,11 +351,17 @@ public class PlateauDeJeu {
             int nv_position_hor = this.position_horizontale + 2;
             if (nv_position_vert < this.nbLignes && nv_position_vert > (-1) && nv_position_hor < this.nbColonnes && nv_position_hor > (-1)) {
                 this.matriceCase[this.position_verticale][this.position_horizontale].eteindreCase();
+                if(this.matriceCase[nv_position_vert][nv_position_hor].getEtat()==0){
+                    case_eteinte=true;
+                }else{
+                    case_eteinte=false;
+                }
                 this.matriceCase[nv_position_vert][nv_position_hor].positionnerCavalier();
                 this.position_horizontale = nv_position_hor;
                 this.position_verticale = nv_position_vert;
             }
         }
+        return case_eteinte;
     }
 
     /**
@@ -320,7 +373,7 @@ public class PlateauDeJeu {
      * @return correspond à la grille de jeu à afficher
      */
     @Override
-    public String toString() {
+public String toString() {
         String grille = "   |"; // initialistaion de la première ligne
         for (int i = 0; i < this.nbColonnes; i++) {
             grille += " " + i + " |";
