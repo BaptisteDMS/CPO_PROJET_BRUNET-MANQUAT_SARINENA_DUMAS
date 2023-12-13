@@ -8,12 +8,12 @@ package lachevauchéefantastique;
  *
  * @author bapti
  */
-public class Fenetre_Victoire extends javax.swing.JFrame {
+public class NewJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form Fenetre_Victoire
+     * Creates new form NewJFrame
      */
-    public Fenetre_Victoire() {
+    public NewJFrame() {
         initComponents();
     }
 
@@ -32,16 +32,15 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Shrek", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Shrek", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 204, 0));
-        jLabel2.setText("Tu es pas mouru l'ane");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        jLabel2.setText("T'es pas mouru l'Ane, t'es pas mouru !");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 410, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/FenetrePerdant .jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/r7s6k_opSqS3P_QujXAX3DhR7Wo.jpg"))); // NOI18N
+        jLabel1.setText("BRAVOOOOOOO !!!!!!");
         jLabel1.setToolTipText("");
-        jLabel1.setPreferredSize(new java.awt.Dimension(725, 725));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 410));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 681, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -63,20 +62,20 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fenetre_Victoire().setVisible(true);
+                new NewJFrame().setVisible(true);
             }
         });
     }
