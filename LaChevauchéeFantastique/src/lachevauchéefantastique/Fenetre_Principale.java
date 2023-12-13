@@ -298,6 +298,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private void Bouton_HautDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautDroiteActionPerformed
         this.plateau.DeplacerCavalier(1);
         repaint();
+        FinDePartie();
+
     }//GEN-LAST:event_Bouton_HautDroiteActionPerformed
 
     private void Bouton_BasGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasGaucheActionPerformed
