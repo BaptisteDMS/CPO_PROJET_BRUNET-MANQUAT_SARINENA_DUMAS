@@ -72,27 +72,26 @@ public class Partie {
         Scanner sc= new Scanner(System.in);
         
         System.out.println("\nSelectionner la taille de votre plateau. (entre 4 et 15)");
-        int taillePlateau=sc.nextInt(16);
-        System.out.println(taillePlateau);
+        int taille=sc.nextInt();
+                
+        System.out.println("\nSelectionner la position horizontale. (entre 0 et "+(taille-1)+")");
+        int position_hor=sc.nextInt();
         
-        //System.out.println("\nSelectionner la position horizontale. (entre 0 et "+(taille-1)+")");
-        //int position_hor=sc.nextInt(taille);
+        System.out.println("\nSelectionner la position verticale. (entre 0 et "+(taille-1)+")");
+        int position_vert=sc.nextInt();
         
-        //System.out.println("\nSelectionner la position verticale. (entre 0 et "+(taille-1)+")");
-        //int position_vert=sc.nextInt(taille);
+        System.out.println("\nSelectionner le nombre de case à activer. (entre 1 et "+((taille*taille)-1)+")");
+        int nbMelange=sc.nextInt();
         
-        //System.out.println("\nSelectionner le nombre de case à activer. (entre 1 et "+((taille*taille)-1)+")");
-        //int nbMelange=sc.nextInt(((taille*taille)-1));
+        this.plateau=new PlateauDeJeu(taille,taille,position_hor,position_vert);
         
-        //this.plateau=new PlateauDeJeu(taille,taille,position_hor,position_vert);
-        
-        //if(ModeJeu==0){
-            //this.plateau.melangerMatriceAleatoirement(nbMelange);
-            //lancerPartieMode1();
-        //}else{
-            //this.plateau.activerCaseAleatoireFantastique(nbMelange);
-            //lancerPartieMode2();
-        //}
+        if(ModeJeu==0){
+            this.plateau.melangerMatriceAleatoirement(nbMelange);
+            lancerPartieMode1();
+        }else{
+            this.plateau.activerCaseAleatoireFantastique(nbMelange);
+            lancerPartieMode2();
+        }
     }
     
     public void lancerPartieMode1(){

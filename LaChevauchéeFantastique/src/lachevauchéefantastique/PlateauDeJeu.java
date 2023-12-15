@@ -111,11 +111,12 @@ public class PlateauDeJeu {
         int mouv_interdit = -1;
         int activationCase = 0;
         int nb_activation = 0;
+        int nb_limite_blocage=0;
         Random generateurAleat = new Random();
 
-        while (nb_activation < nb_melange) {
+        while (nb_activation < nb_melange && nb_limite_blocage<10000) {
             activationCase = 0;
-            while (activationCase == 0) {
+            while (activationCase == 0 && nb_limite_blocage<10000) {
                 nb_alea = generateurAleat.nextInt(8);
                 if (nb_alea == 0 && mouv_interdit != 0) {
                     // deplacemment Nord 1 (haut puis gauche)
@@ -129,7 +130,7 @@ public class PlateauDeJeu {
                         activationCase += 1;
                         matriceCase[position_vert_test][position_hor_test].activerCase();
                     }
-            }else if (nb_alea == 1 && mouv_interdit != 1) {
+                }else if (nb_alea == 1 && mouv_interdit != 1) {
                     // deplacemment Nord 2 (haut puis droite)
                     int position_vert_test = position_vert_variable - 2;
                     int position_hor_test = position_hor_variable + 1;
@@ -214,6 +215,7 @@ public class PlateauDeJeu {
                         matriceCase[position_vert_test][position_hor_test].activerCase();
                     }
                 }
+                nb_limite_blocage+=1;
         }
         nb_activation+=1;
     }
