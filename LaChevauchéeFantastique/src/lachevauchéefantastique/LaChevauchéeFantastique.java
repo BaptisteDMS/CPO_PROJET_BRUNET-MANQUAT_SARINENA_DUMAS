@@ -14,7 +14,7 @@ public class LaChevauchéeFantastique {
      */
     public static void main(String[] args) {
         Partie game1=new Partie();
-        game1.initialiserPartie(3,2);
+        game1.DemarrerJeu();
     }
     
 }

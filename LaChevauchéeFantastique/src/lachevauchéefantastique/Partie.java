@@ -39,9 +39,7 @@ public class Partie {
                 this.plateau.melangerMatriceAleatoirement(10);
                 lancerPartieMode1();
             }else { // Sandbox
-                this.plateau=new PlateauDeJeu(5,5,3,3);
-                this.plateau.melangerMatriceAleatoirement(5);
-                lancerPartieMode1();
+                SetSandbox(0);
             }
         }else if (ModeJeu==1){
             if (Difficulte==0){ // Facile
@@ -61,15 +59,40 @@ public class Partie {
                 this.plateau.activerCaseAleatoireFantastique(10);
                 lancerPartieMode2();
             }else { // Sandbox
-                this.plateau=new PlateauDeJeu(5,5,3,3);
-                this.plateau.activerCaseAleatoireFantastique(5);
-                lancerPartieMode2();
+                SetSandbox(1);
             }
         }else{
             this.plateau=new PlateauDeJeu(8,8,4,0);
             this.plateau.activerTouteCase();
             lancerPartieMode2();
         }
+    }
+    
+    public void SetSandbox(int ModeJeu){
+        Scanner sc= new Scanner(System.in);
+        
+        System.out.println("\nSelectionner la taille de votre plateau. (entre 4 et 15)");
+        int taillePlateau=sc.nextInt(16);
+        System.out.println(taillePlateau);
+        
+        //System.out.println("\nSelectionner la position horizontale. (entre 0 et "+(taille-1)+")");
+        //int position_hor=sc.nextInt(taille);
+        
+        //System.out.println("\nSelectionner la position verticale. (entre 0 et "+(taille-1)+")");
+        //int position_vert=sc.nextInt(taille);
+        
+        //System.out.println("\nSelectionner le nombre de case à activer. (entre 1 et "+((taille*taille)-1)+")");
+        //int nbMelange=sc.nextInt(((taille*taille)-1));
+        
+        //this.plateau=new PlateauDeJeu(taille,taille,position_hor,position_vert);
+        
+        //if(ModeJeu==0){
+            //this.plateau.melangerMatriceAleatoirement(nbMelange);
+            //lancerPartieMode1();
+        //}else{
+            //this.plateau.activerCaseAleatoireFantastique(nbMelange);
+            //lancerPartieMode2();
+        //}
     }
     
     public void lancerPartieMode1(){
@@ -123,5 +146,15 @@ public class Partie {
         System.out.println("Selectionnez le mode de jeu. (0 => Déplacement libre ; 1 => Déplacement fantastique ; 2 => Enigme)");
         int modejeu=sc.nextInt(3);
         return modejeu;
+    }
+    
+    public void DemarrerJeu(){
+        int ModeJeu=SelectionModeJeu();
+        if (ModeJeu==2){
+            initialiserPartie(0,2);
+        }else{
+            int Difficulte=SelectionDifficulte();
+            initialiserPartie(Difficulte,ModeJeu);
+        }
     }
 }
