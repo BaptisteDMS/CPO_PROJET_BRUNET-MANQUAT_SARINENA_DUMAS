@@ -28,7 +28,7 @@ public class Partie {
                 lancerPartieMode1();
             }else if (Difficulte==1) { //Moyen
                 this.plateau=new PlateauDeJeu(9,9,4,4);
-                this.plateau.melangerMatriceAleatoirement(5);
+                this.plateau.melangerMatriceAleatoirement(15);
                 lancerPartieMode1();
             }else if (Difficulte==2){ // Speedrun
                 this.plateau=new PlateauDeJeu(9,9,4,4);
@@ -50,15 +50,15 @@ public class Partie {
                 lancerPartieMode2();
             }else if (Difficulte==1) { //Moyen
                 this.plateau=new PlateauDeJeu(9,9,4,4);
-                this.plateau.activerCaseAleatoireFantastique(5);
+                this.plateau.activerCaseAleatoireFantastique(15);
                 lancerPartieMode2();
             }else if (Difficulte==2){ // Speedrun
                 this.plateau=new PlateauDeJeu(9,9,4,4);
-                this.plateau.activerCaseAleatoireFantastique(5);
+                this.plateau.activerCaseAleatoireFantastique(10);
                 lancerPartieMode2();
             }else if (Difficulte==3){ // Chrono
                 this.plateau=new PlateauDeJeu(9,9,4,4);
-                this.plateau.activerCaseAleatoireFantastique(5);
+                this.plateau.activerCaseAleatoireFantastique(10);
                 lancerPartieMode2();
             }else { // Sandbox
                 this.plateau=new PlateauDeJeu(5,5,3,3);
@@ -66,7 +66,9 @@ public class Partie {
                 lancerPartieMode2();
             }
         }else{
-            
+            this.plateau=new PlateauDeJeu(8,8,4,0);
+            this.plateau.activerTouteCase();
+            lancerPartieMode2();
         }
     }
     

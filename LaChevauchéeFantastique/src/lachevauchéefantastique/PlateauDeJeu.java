@@ -80,6 +80,16 @@ public class PlateauDeJeu {
             }
         }
     }
+    
+    public void activerTouteCase(){
+        for (int i=0; i< this.nbLignes;i++){
+            for (int j=0; j< this.nbColonnes; j++){
+                if (matriceCase[i][j].getEtat()!=2){
+                    matriceCase[i][j].activerCase();
+                }
+            }
+        }
+    }
 
     /**
      * Permet de générer un plateau de case de manière aléatoire à partir d’un
