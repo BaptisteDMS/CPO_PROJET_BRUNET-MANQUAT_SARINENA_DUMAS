@@ -16,6 +16,8 @@ import javax.swing.JButton;
 public class Fenetre_Principale extends javax.swing.JFrame {
 
     PlateauDeJeu plateau;
+    int Difficulte;
+    int ModeJeu;
     int nbCoups;
     int nbLignes;
     int nbColonnes;
@@ -25,8 +27,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     /**
      * Creates new form Fenetre_Principale
      */
-    public Fenetre_Principale() {
+    public Fenetre_Principale(int Diff, int Mode) {
         initComponents();
+        this.ModeJeu=Mode;
+        this.Difficulte=Diff;
         nbLignes = 5;
         nbColonnes = 5;
         nbTouche = 2;
@@ -367,7 +371,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fenetre_Principale().setVisible(true);
+                
             }
         });
     }
