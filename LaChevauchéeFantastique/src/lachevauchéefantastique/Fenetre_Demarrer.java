@@ -67,7 +67,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_Mode_fantasActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mode_fantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        getContentPane().add(Btn_Mode_fantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         Btn_Mode_enigme.setText("Enigme");
         Btn_Mode_enigme.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +215,16 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ChronoActionPerformed
 
     private void Btn_SandboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SandboxActionPerformed
-        // TODO add your handling code here:
+        this.Difficulte=0;
+        
+        // Fermer la fenêtre de démarrage
+        this.dispose();
+
+        // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte,this.ModeJeu);
+        fenetrePrincipale.setVisible(true);
+        
+        fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_SandboxActionPerformed
 
     private void Btn_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_QuitterActionPerformed

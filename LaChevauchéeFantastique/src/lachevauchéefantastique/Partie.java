@@ -55,11 +55,11 @@ public class Partie {
                 lancerPartieMode2();
             } else if (Difficulte == 2) { // Speedrun
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
-                this.plateau.activerCaseAleatoireFantastique(2);
+                this.plateau.activerCaseAleatoireFantastique(10);
                 lancerPartieMode2();
             } else if (Difficulte == 3) { // Chrono
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
-                this.plateau.activerCaseAleatoireFantastique(2);
+                this.plateau.activerCaseAleatoireFantastique(10);
                 lancerPartieMode2();
             } else { // Sandbox
                 SetSandbox(1);
