@@ -51,6 +51,9 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setFocusableWindowState(false);
+        setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Mode_libre.setText("Déplacement libre");
@@ -59,7 +62,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_Mode_libreActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mode_libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+        getContentPane().add(Btn_Mode_libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         Btn_Mode_fantas.setText("Déplacement Fantastique");
         Btn_Mode_fantas.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +70,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_Mode_fantasActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mode_fantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        getContentPane().add(Btn_Mode_fantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
         Btn_Mode_enigme.setText("Enigme");
         Btn_Mode_enigme.addActionListener(new java.awt.event.ActionListener() {
@@ -75,13 +78,13 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_Mode_enigmeActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mode_enigme, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+        getContentPane().add(Btn_Mode_enigme, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
         Txt_Bienv.setText("Bienvenue sur la Chevauché fantastique Shrek édition");
-        getContentPane().add(Txt_Bienv, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 280, 20));
+        getContentPane().add(Txt_Bienv, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 280, 20));
 
         Txt_Selection_Mode.setText("Sélectionnez le mode de jeu :");
-        getContentPane().add(Txt_Selection_Mode, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, 20));
+        getContentPane().add(Txt_Selection_Mode, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, 20));
 
         Btn_Quitter.setText("Quitter");
         Btn_Quitter.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +92,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_QuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
 
         Btn_Facile.setText("Facile");
         Btn_Facile.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +100,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_FacileActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        getContentPane().add(Btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
 
         Btn_Moyen.setText("Moyenne");
         Btn_Moyen.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +108,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_MoyenActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
+        getContentPane().add(Btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
 
         Btn_Speedrun.setText("Speedrun");
         Btn_Speedrun.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +116,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_SpeedrunActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Speedrun, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+        getContentPane().add(Btn_Speedrun, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 80, -1));
 
         Btn_Chrono.setText("Chrono");
         Btn_Chrono.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +124,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_ChronoActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        getContentPane().add(Btn_Chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         Btn_Sandbox.setText("Sandbox");
         Btn_Sandbox.addActionListener(new java.awt.event.ActionListener() {
@@ -129,14 +132,14 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_SandboxActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+        getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
+        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
 
         Txt_Selection_Diff.setText("Sélectionnez la difficultée :");
-        getContentPane().add(Txt_Selection_Diff, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        getContentPane().add(Txt_Selection_Diff, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
