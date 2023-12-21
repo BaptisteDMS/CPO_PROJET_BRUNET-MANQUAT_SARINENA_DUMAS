@@ -15,6 +15,7 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
      */
     public Fenetre_Victoire() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

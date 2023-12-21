@@ -38,19 +38,19 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         
         // Def panneaux bouton deplacement
         PanneauBoutonHAUT.setLayout(new GridLayout(nbTouche, 1));
-        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, nbTouche * 40, 1 * 80));
+        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, nbTouche * 40, 1 * 80));
         this.pack();
         this.revalidate();
         PanneauBoutonGAUCHE.setLayout(new GridLayout(1, nbTouche));
-        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, 1 * 100, nbTouche * 25));
+        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, 1 * 100, nbTouche * 25));
         this.pack();
         this.revalidate();
         PanneauBoutonDROITE.setLayout(new GridLayout(nbTouche, 1));
-        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, nbTouche * 40, 1 * 80));
+        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 300, nbTouche * 40, 1 * 80));
         this.pack();
         this.revalidate();
         PanneauBoutonBAS.setLayout(new GridLayout(1, nbTouche));
-        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 180, 1 * 100, nbTouche * 25));
+        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
         this.pack();
         this.revalidate();
         

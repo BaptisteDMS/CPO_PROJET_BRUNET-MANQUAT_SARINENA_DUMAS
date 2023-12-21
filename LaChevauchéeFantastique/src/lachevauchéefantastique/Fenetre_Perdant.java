@@ -14,6 +14,7 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
      */
     public Fenetre_Perdant() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
