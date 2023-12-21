@@ -9,7 +9,7 @@ package lachevauchéefantastique;
  * @author rembr
  */
 public class Fenetre_Demarrer extends javax.swing.JFrame {
-    
+
     int Difficulte;
     int ModeJeu;
 
@@ -18,12 +18,15 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
      */
     public Fenetre_Demarrer() {
         initComponents();
+        setLocationRelativeTo(null);
         Btn_Facile.setVisible(false);
         Btn_Moyen.setVisible(false);
         Btn_Speedrun.setVisible(false);
         Btn_Chrono.setVisible(false);
         Btn_Sandbox.setVisible(false);
         Txt_Selection_Diff.setVisible(false);
+        Text_Sandbox.setVisible(false);
+        Spinner_Sandbox.setVisible(false);
     }
 
     /**
@@ -46,9 +49,9 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Speedrun = new javax.swing.JButton();
         Btn_Chrono = new javax.swing.JButton();
         Btn_Sandbox = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
+        Spinner_Sandbox = new javax.swing.JSpinner();
         Txt_Selection_Diff = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        Text_Sandbox = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -56,22 +59,25 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Btn_Mode_libre.setBackground(new java.awt.Color(102, 255, 51));
         Btn_Mode_libre.setText("Déplacement libre");
         Btn_Mode_libre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_Mode_libreActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mode_libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        getContentPane().add(Btn_Mode_libre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
+        Btn_Mode_fantas.setBackground(new java.awt.Color(255, 0, 0));
         Btn_Mode_fantas.setText("Déplacement Fantastique");
         Btn_Mode_fantas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_Mode_fantasActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Mode_fantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        getContentPane().add(Btn_Mode_fantas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
 
+        Btn_Mode_enigme.setBackground(new java.awt.Color(255, 255, 51));
         Btn_Mode_enigme.setText("Enigme");
         Btn_Mode_enigme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +92,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Txt_Selection_Mode.setText("Sélectionnez le mode de jeu :");
         getContentPane().add(Txt_Selection_Mode, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, 20));
 
+        Btn_Quitter.setBackground(new java.awt.Color(0, 102, 102));
         Btn_Quitter.setText("Quitter");
         Btn_Quitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +101,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
 
+        Btn_Facile.setBackground(new java.awt.Color(153, 255, 102));
         Btn_Facile.setText("Facile");
         Btn_Facile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +110,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
 
+        Btn_Moyen.setBackground(new java.awt.Color(255, 102, 0));
         Btn_Moyen.setText("Moyenne");
         Btn_Moyen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +119,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
 
+        Btn_Speedrun.setBackground(new java.awt.Color(255, 0, 0));
         Btn_Speedrun.setText("Speedrun");
         Btn_Speedrun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +128,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Speedrun, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 80, -1));
 
+        Btn_Chrono.setBackground(new java.awt.Color(153, 153, 153));
         Btn_Chrono.setText("Chrono");
         Btn_Chrono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +137,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
+        Btn_Sandbox.setBackground(new java.awt.Color(0, 204, 153));
         Btn_Sandbox.setText("Sandbox");
         Btn_Sandbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,100 +145,108 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+        getContentPane().add(Spinner_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
 
         Txt_Selection_Diff.setText("Sélectionnez la difficultée :");
         getContentPane().add(Txt_Selection_Diff, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+        Text_Sandbox.setText("Lignes x Colonnes");
+        getContentPane().add(Text_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_Mode_fantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Mode_fantasActionPerformed
-        this.ModeJeu=1;
-        
+        this.ModeJeu = 1;
+
         // Désafficher mode jeu
         Btn_Mode_fantas.setVisible(false);
         Btn_Mode_libre.setVisible(false);
         Btn_Mode_enigme.setVisible(false);
-        
+
         // Afficher difficulte
         Btn_Facile.setVisible(true);
         Btn_Moyen.setVisible(true);
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
-        Btn_Sandbox.setVisible(true); 
-        
+        Btn_Sandbox.setVisible(true);
+        Text_Sandbox.setVisible(true);
+        Spinner_Sandbox.setVisible(true);
+
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
         Txt_Selection_Mode.setVisible(false);
     }//GEN-LAST:event_Btn_Mode_fantasActionPerformed
 
     private void Btn_Mode_libreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Mode_libreActionPerformed
-        this.ModeJeu=0;
+        this.ModeJeu = 0;
         
+
         // Désafficher mode jeu
         Btn_Mode_fantas.setVisible(false);
         Btn_Mode_libre.setVisible(false);
         Btn_Mode_enigme.setVisible(false);
-        
+
         // Afficher difficulte
         Btn_Facile.setVisible(true);
         Btn_Moyen.setVisible(true);
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
-        Btn_Sandbox.setVisible(true); 
-        
+        Btn_Sandbox.setVisible(true);
+                Text_Sandbox.setVisible(true);
+        Spinner_Sandbox.setVisible(true);
+
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
         Txt_Selection_Mode.setVisible(false);
     }//GEN-LAST:event_Btn_Mode_libreActionPerformed
 
     private void Btn_Mode_enigmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Mode_enigmeActionPerformed
-        this.ModeJeu=2;
+        this.ModeJeu = 2;
         
+
         // Désafficher mode jeu
         Btn_Mode_fantas.setVisible(false);
         Btn_Mode_libre.setVisible(false);
         Btn_Mode_enigme.setVisible(false);
-        
+
         // Afficher difficulte
         Btn_Facile.setVisible(true);
         Btn_Moyen.setVisible(true);
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
-        Btn_Sandbox.setVisible(true); 
-        
+        Btn_Sandbox.setVisible(true);
+                Text_Sandbox.setVisible(true);
+        Spinner_Sandbox.setVisible(true);
+
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
         Txt_Selection_Mode.setVisible(false);
     }//GEN-LAST:event_Btn_Mode_enigmeActionPerformed
 
     private void Btn_ChronoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ChronoActionPerformed
-        this.Difficulte=3;
-        
+        this.Difficulte = 3;
+
         // Fermer la fenêtre de démarrage
         this.dispose();
 
         // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
-        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte,this.ModeJeu);
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
         fenetrePrincipale.setVisible(true);
-        
+
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_ChronoActionPerformed
 
     private void Btn_SandboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SandboxActionPerformed
-        this.Difficulte=0;
-        
+        this.Difficulte = 0;
+
         // Fermer la fenêtre de démarrage
         this.dispose();
 
         // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
-        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte,this.ModeJeu);
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
         fenetrePrincipale.setVisible(true);
-        
+
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_SandboxActionPerformed
 
@@ -235,41 +255,41 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_QuitterActionPerformed
 
     private void Btn_SpeedrunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SpeedrunActionPerformed
-        this.Difficulte=2;
-        
+        this.Difficulte = 2;
+
         // Fermer la fenêtre de démarrage
         this.dispose();
 
         // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
-        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte,this.ModeJeu);
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
         fenetrePrincipale.setVisible(true);
-        
+
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_SpeedrunActionPerformed
 
     private void Btn_MoyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MoyenActionPerformed
-        this.Difficulte=1;
-        
+        this.Difficulte = 1;
+
         // Fermer la fenêtre de démarrage
         this.dispose();
 
         // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
-        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte,this.ModeJeu);
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
         fenetrePrincipale.setVisible(true);
-        
+
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_MoyenActionPerformed
 
     private void Btn_FacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_FacileActionPerformed
-        this.Difficulte=0;
-        
+        this.Difficulte = 0;
+
         // Fermer la fenêtre de démarrage
         this.dispose();
 
         // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
-        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte,this.ModeJeu);
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
         fenetrePrincipale.setVisible(true);
-        
+
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_FacileActionPerformed
 
@@ -318,10 +338,10 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Quitter;
     private javax.swing.JButton Btn_Sandbox;
     private javax.swing.JButton Btn_Speedrun;
+    private javax.swing.JSpinner Spinner_Sandbox;
+    private javax.swing.JLabel Text_Sandbox;
     private javax.swing.JLabel Txt_Bienv;
     private javax.swing.JLabel Txt_Selection_Diff;
     private javax.swing.JLabel Txt_Selection_Mode;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }

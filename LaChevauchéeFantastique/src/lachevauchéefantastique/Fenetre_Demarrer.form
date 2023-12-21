@@ -34,6 +34,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="Btn_Mode_libre">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="ff" red="66" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="D&#xe9;placement libre"/>
       </Properties>
       <Events>
@@ -41,12 +44,15 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="190" y="120" width="-1" height="-1"/>
+          <AbsoluteConstraints x="180" y="120" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Mode_fantas">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="D&#xe9;placement Fantastique"/>
       </Properties>
       <Events>
@@ -54,12 +60,15 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="150" width="-1" height="-1"/>
+          <AbsoluteConstraints x="160" y="150" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Mode_enigme">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Enigme"/>
       </Properties>
       <Events>
@@ -93,6 +102,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Quitter">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Quitter"/>
       </Properties>
       <Events>
@@ -106,6 +118,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Facile">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="ff" red="99" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Facile"/>
       </Properties>
       <Events>
@@ -119,6 +134,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Moyen">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="66" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Moyenne"/>
       </Properties>
       <Events>
@@ -132,6 +150,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Speedrun">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Speedrun"/>
       </Properties>
       <Events>
@@ -145,6 +166,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Chrono">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Chrono"/>
       </Properties>
       <Events>
@@ -158,6 +182,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Sandbox">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="cc" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Sandbox"/>
       </Properties>
       <Events>
@@ -169,7 +196,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JSpinner" name="jSpinner1">
+    <Component class="javax.swing.JSpinner" name="Spinner_Sandbox">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="380" y="240" width="-1" height="-1"/>
@@ -186,13 +213,13 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="Text_Sandbox">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="Lignes x Colonnes"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="390" y="220" width="-1" height="-1"/>
+          <AbsoluteConstraints x="370" y="220" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

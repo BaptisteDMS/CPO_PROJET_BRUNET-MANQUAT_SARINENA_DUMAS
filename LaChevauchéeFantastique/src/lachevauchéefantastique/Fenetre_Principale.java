@@ -55,6 +55,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.revalidate();
         
         // Lancement jeu
+        setLocationRelativeTo(null);
         initialiserPartie();
     }
 
