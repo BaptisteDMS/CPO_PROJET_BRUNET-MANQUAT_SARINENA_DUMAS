@@ -60,10 +60,18 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
         this.pack();
         this.revalidate();
+        
+        getContentPane().add(Btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 450, 100, 40));
+        this.pack();
+        this.revalidate();
+        
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 500, 100, 40));
+        this.pack();
+        this.revalidate();
 
         // Gestion des modes avec timer
         if (this.Difficulte == 2 || this.Difficulte == 3) {
-            int tempsLimiteEnSecondes = 30;
+            int tempsLimiteEnSecondes = 180;
             this.tempsLimiteEnMillisecondes = tempsLimiteEnSecondes * 1000;
             this.tempsDebut = System.currentTimeMillis();
         }
@@ -102,10 +110,18 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
         this.pack();
         this.revalidate();
+        
+        getContentPane().add(Btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 450, 100, 40));
+        this.pack();
+        this.revalidate();
+        
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 500, 100, 40));
+        this.pack();
+        this.revalidate();
 
         // Gestion des modes avec timer
         if (this.Difficulte == 2 || this.Difficulte == 3) {
-            int tempsLimiteEnSecondes = 30;
+            int tempsLimiteEnSecondes = 180;
             this.tempsLimiteEnMillisecondes = tempsLimiteEnSecondes * 1000;
             this.tempsDebut = System.currentTimeMillis();
         }
@@ -260,9 +276,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         PanneauBoutonBAS = new javax.swing.JPanel();
         Bouton_BasDroite = new javax.swing.JButton();
         Bouton_BasGauche = new javax.swing.JButton();
+        Btn_Quitter = new javax.swing.JButton();
+        Btn_Menu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 1300));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanneauGrille.setBackground(new java.awt.Color(204, 204, 204));
@@ -436,6 +453,22 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 180, 40));
 
+        Btn_Quitter.setText("Quitter");
+        Btn_Quitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_QuitterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 320, -1, -1));
+
+        Btn_Menu.setText("Menu");
+        Btn_Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_MenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -511,6 +544,21 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Bouton_DroiteBasActionPerformed
 
+    private void Btn_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MenuActionPerformed
+        // Fermer la fenêtre
+        this.dispose();
+        
+        // Ouvrir le menu
+        Fenetre_Demarrer fenetreMenu=new Fenetre_Demarrer();
+        fenetreMenu.setVisible(true);
+        
+        fenetreMenu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_Btn_MenuActionPerformed
+
+    private void Btn_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_QuitterActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_Btn_QuitterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -555,6 +603,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private javax.swing.JButton Bouton_GaucheHaut;
     private javax.swing.JButton Bouton_HautDroite;
     private javax.swing.JButton Bouton_HautGauche;
+    private javax.swing.JButton Btn_Menu;
+    private javax.swing.JButton Btn_Quitter;
     private javax.swing.JPanel PanneauBoutonBAS;
     private javax.swing.JPanel PanneauBoutonDROITE;
     private javax.swing.JPanel PanneauBoutonGAUCHE;
