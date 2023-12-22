@@ -56,7 +56,6 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusableWindowState(false);
-        setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Mode_libre.setBackground(new java.awt.Color(102, 255, 51));
@@ -145,7 +144,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
-        getContentPane().add(Spinner_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+        getContentPane().add(Spinner_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 240, 70, -1));
 
         Txt_Selection_Diff.setText("Sélectionnez la difficultée :");
         getContentPane().add(Txt_Selection_Diff, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
@@ -170,8 +169,6 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
         Btn_Sandbox.setVisible(true);
-        Text_Sandbox.setVisible(true);
-        Spinner_Sandbox.setVisible(true);
 
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
@@ -193,8 +190,6 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
         Btn_Sandbox.setVisible(true);
-                Text_Sandbox.setVisible(true);
-        Spinner_Sandbox.setVisible(true);
 
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
@@ -202,26 +197,17 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_Mode_libreActionPerformed
 
     private void Btn_Mode_enigmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Mode_enigmeActionPerformed
-        this.ModeJeu = 2;
-        
+        this.ModeJeu = 2;     
+        this.Difficulte = -1;
 
-        // Désafficher mode jeu
-        Btn_Mode_fantas.setVisible(false);
-        Btn_Mode_libre.setVisible(false);
-        Btn_Mode_enigme.setVisible(false);
+        // Fermer la fenêtre de démarrage
+        this.dispose();
 
-        // Afficher difficulte
-        Btn_Facile.setVisible(true);
-        Btn_Moyen.setVisible(true);
-        Btn_Speedrun.setVisible(true);
-        Btn_Chrono.setVisible(true);
-        Btn_Sandbox.setVisible(true);
-                Text_Sandbox.setVisible(true);
-        Spinner_Sandbox.setVisible(true);
+        // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
+        fenetrePrincipale.setVisible(true);
 
-        // Afficher bon txt
-        Txt_Selection_Diff.setVisible(true);
-        Txt_Selection_Mode.setVisible(false);
+        fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_Mode_enigmeActionPerformed
 
     private void Btn_ChronoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ChronoActionPerformed
@@ -238,16 +224,20 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_ChronoActionPerformed
 
     private void Btn_SandboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SandboxActionPerformed
-        this.Difficulte = 0;
+        this.Difficulte = 4;
 
-        // Fermer la fenêtre de démarrage
-        this.dispose();
-
-        // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
-        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu);
-        fenetrePrincipale.setVisible(true);
-
-        fenetrePrincipale.setLocationRelativeTo(null);
+        // Retirer les difficulte
+        Btn_Facile.setVisible(false);
+        Btn_Moyen.setVisible(false);
+        Btn_Speedrun.setVisible(false);
+        Btn_Chrono.setVisible(false);
+        Btn_Sandbox.setVisible(false);
+        
+        // Affichage settings sandbox
+        Text_Sandbox.setVisible(true);
+        Spinner_Sandbox.setVisible(true);
+        
+        
     }//GEN-LAST:event_Btn_SandboxActionPerformed
 
     private void Btn_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_QuitterActionPerformed

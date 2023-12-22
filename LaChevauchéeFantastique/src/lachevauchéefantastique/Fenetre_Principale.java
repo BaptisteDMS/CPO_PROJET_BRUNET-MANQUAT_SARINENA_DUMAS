@@ -133,7 +133,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         } else {
             this.plateau = new PlateauDeJeu(8, 8, 4, 0);
             this.plateau.activerTouteCase();
-           
+            this.nbColonnes=8;
+            this.nbLignes=8;
+            CreationGrille();
         }
     }
 
@@ -353,7 +355,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Bouton_HautGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautGaucheActionPerformed
-        if (this.plateau.DeplacerCavalier(0)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(0)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -362,7 +364,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_HautGaucheActionPerformed
 
     private void Bouton_BasDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasDroiteActionPerformed
-        if (this.plateau.DeplacerCavalier(3)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(3)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -371,7 +373,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_BasDroiteActionPerformed
 
     private void Bouton_HautDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautDroiteActionPerformed
-        if (this.plateau.DeplacerCavalier(1)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(1)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -380,7 +382,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_HautDroiteActionPerformed
 
     private void Bouton_BasGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasGaucheActionPerformed
-        if (this.plateau.DeplacerCavalier(2)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(2)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -389,7 +391,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_BasGaucheActionPerformed
 
     private void Bouton_GaucheHautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_GaucheHautActionPerformed
-        if (this.plateau.DeplacerCavalier(4)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(4)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -398,7 +400,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_GaucheHautActionPerformed
 
     private void Bouton_GaucheBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_GaucheBasActionPerformed
-        if (this.plateau.DeplacerCavalier(5)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(5)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -407,7 +409,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_GaucheBasActionPerformed
 
     private void Bouton_DroiteHautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_DroiteHautActionPerformed
-        if (this.plateau.DeplacerCavalier(6)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(6)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();
@@ -416,7 +418,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_DroiteHautActionPerformed
 
     private void Bouton_DroiteBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_DroiteBasActionPerformed
-        if (this.plateau.DeplacerCavalier(7)==true && this.ModeJeu==1){
+        if (this.plateau.DeplacerCavalier(7)==true && this.ModeJeu!=0){
             this.perdu=true;
         }
         repaint();

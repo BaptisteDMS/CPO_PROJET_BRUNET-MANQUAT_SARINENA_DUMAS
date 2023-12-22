@@ -7,9 +7,6 @@
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
     <Property name="focusableWindowState" type="boolean" value="false"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[500, 400]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -199,7 +196,7 @@
     <Component class="javax.swing.JSpinner" name="Spinner_Sandbox">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="380" y="240" width="-1" height="-1"/>
+          <AbsoluteConstraints x="374" y="240" width="70" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
