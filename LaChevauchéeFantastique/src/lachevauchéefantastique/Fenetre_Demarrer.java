@@ -39,6 +39,8 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Txt_SandPosHor.setVisible(false);
         Txt_SandPosVert.setVisible(false);
         Txt_SandBox.setVisible(false);
+        Btn_RetourMode.setVisible(false);
+        Btn_RetourDiff.setVisible(false);
         
         SpinnerMelange.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
@@ -132,6 +134,8 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Txt_SandPosVert = new javax.swing.JLabel();
         Txt_SandMelange = new javax.swing.JLabel();
         Txt_SandBox = new javax.swing.JLabel();
+        Btn_RetourDiff = new javax.swing.JButton();
+        Btn_RetourMode = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -179,7 +183,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_QuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, -1));
 
         Btn_Facile.setBackground(new java.awt.Color(153, 255, 102));
         Btn_Facile.setText("Facile");
@@ -264,6 +268,22 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Txt_SandBox.setText("Sélectionnez vos paramètres de jeu :");
         getContentPane().add(Txt_SandBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
 
+        Btn_RetourDiff.setText("Retour");
+        Btn_RetourDiff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RetourDiffActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_RetourDiff, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
+
+        Btn_RetourMode.setText("Retour");
+        Btn_RetourMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RetourModeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_RetourMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -281,6 +301,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
         Btn_Sandbox.setVisible(true);
+        Btn_RetourMode.setVisible(true);
 
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
@@ -302,6 +323,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Speedrun.setVisible(true);
         Btn_Chrono.setVisible(true);
         Btn_Sandbox.setVisible(true);
+        Btn_RetourMode.setVisible(true);
 
         // Afficher bon txt
         Txt_Selection_Diff.setVisible(true);
@@ -351,6 +373,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         SpinnerPosVert.setVisible(true);
         SpinnerMelange.setVisible(true);
         Btn_LancerJeu.setVisible(true);
+        Btn_RetourDiff.setVisible(true);
         
         Txt_SandTaille.setVisible(true);
         Txt_SandMelange.setVisible(true);
@@ -419,6 +442,50 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_LancerJeuActionPerformed
 
+    private void Btn_RetourDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RetourDiffActionPerformed
+        // Remettre les difficulte
+        Btn_Facile.setVisible(true);
+        Btn_Moyen.setVisible(true);
+        Btn_Speedrun.setVisible(true);
+        Btn_Chrono.setVisible(true);
+        Btn_Sandbox.setVisible(true);
+        Btn_RetourMode.setVisible(true);
+        
+        // Désaffichage settings sandbox
+        SpinnerTaille.setVisible(false);
+        SpinnerPosHor.setVisible(false);
+        SpinnerPosVert.setVisible(false);
+        SpinnerMelange.setVisible(false);
+        Btn_LancerJeu.setVisible(false);
+        Btn_RetourDiff.setVisible(false);
+        
+        Txt_SandTaille.setVisible(false);
+        Txt_SandMelange.setVisible(false);
+        Txt_SandPosHor.setVisible(false);
+        Txt_SandPosVert.setVisible(false);
+        Txt_SandBox.setVisible(false);
+        Txt_Selection_Diff.setVisible(true);
+    }//GEN-LAST:event_Btn_RetourDiffActionPerformed
+
+    private void Btn_RetourModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RetourModeActionPerformed
+        // Résafficher mode jeu
+        Btn_Mode_fantas.setVisible(true);
+        Btn_Mode_libre.setVisible(true);
+        Btn_Mode_enigme.setVisible(true);
+
+        // Désafficher difficulte
+        Btn_Facile.setVisible(false);
+        Btn_Moyen.setVisible(false);
+        Btn_Speedrun.setVisible(false);
+        Btn_Chrono.setVisible(false);
+        Btn_Sandbox.setVisible(false);
+        Btn_RetourMode.setVisible(false);
+
+        // Afficher bon txt
+        Txt_Selection_Diff.setVisible(false);
+        Txt_Selection_Mode.setVisible(true);
+    }//GEN-LAST:event_Btn_RetourModeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -463,6 +530,8 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Mode_libre;
     private javax.swing.JButton Btn_Moyen;
     private javax.swing.JButton Btn_Quitter;
+    private javax.swing.JButton Btn_RetourDiff;
+    private javax.swing.JButton Btn_RetourMode;
     private javax.swing.JButton Btn_Sandbox;
     private javax.swing.JButton Btn_Speedrun;
     private javax.swing.JSpinner SpinnerMelange;
