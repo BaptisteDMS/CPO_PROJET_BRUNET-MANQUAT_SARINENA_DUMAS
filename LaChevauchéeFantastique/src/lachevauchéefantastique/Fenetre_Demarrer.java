@@ -4,6 +4,9 @@
  */
 package lachevauchéefantastique;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 /**
  *
  * @author rembr
@@ -25,8 +28,77 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Chrono.setVisible(false);
         Btn_Sandbox.setVisible(false);
         Txt_Selection_Diff.setVisible(false);
-        Text_Sandbox.setVisible(false);
-        Spinner_Sandbox.setVisible(false);
+        Txt_SandTaille.setVisible(false);
+        SpinnerTaille.setVisible(false);
+        SpinnerPosHor.setVisible(false);
+        SpinnerPosVert.setVisible(false);
+        SpinnerMelange.setVisible(false);
+        Btn_LancerJeu.setVisible(false);
+        Txt_SandTaille.setVisible(false);
+        Txt_SandMelange.setVisible(false);
+        Txt_SandPosHor.setVisible(false);
+        Txt_SandPosVert.setVisible(false);
+        Txt_SandBox.setVisible(false);
+        
+        SpinnerMelange.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // Récupération de la valeur sélectionnée
+                int valeurMelange = (int) SpinnerMelange.getValue();
+                int valeurTaille = (int) SpinnerTaille.getValue();
+                int valeurPosHor = (int) SpinnerPosHor.getValue();
+                int valeurPosVert = (int) SpinnerPosVert.getValue();
+                if (valeurMelange<=((valeurTaille*valeurTaille)-1) && valeurPosHor<=(valeurTaille-1) && valeurPosVert<=(valeurTaille-1)){
+                    Btn_LancerJeu.setEnabled(true);
+                }else{
+                    Btn_LancerJeu.setEnabled(false);
+                }
+            }
+        });
+        
+        SpinnerPosHor.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // Récupération de la valeur sélectionnée
+                int valeurMelange = (int) SpinnerMelange.getValue();
+                int valeurTaille = (int) SpinnerTaille.getValue();
+                int valeurPosHor = (int) SpinnerPosHor.getValue();
+                int valeurPosVert = (int) SpinnerPosVert.getValue();
+                if (valeurMelange<=((valeurTaille*valeurTaille)-1) && valeurPosHor<=(valeurTaille-1) && valeurPosVert<=(valeurTaille-1)){
+                    Btn_LancerJeu.setEnabled(true);
+                }else{
+                    Btn_LancerJeu.setEnabled(false);
+                }
+            }
+        });
+        
+        SpinnerPosVert.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // Récupération de la valeur sélectionnée
+                int valeurMelange = (int) SpinnerMelange.getValue();
+                int valeurTaille = (int) SpinnerTaille.getValue();
+                int valeurPosHor = (int) SpinnerPosHor.getValue();
+                int valeurPosVert = (int) SpinnerPosVert.getValue();
+                if (valeurMelange<=((valeurTaille*valeurTaille)-1) && valeurPosHor<=(valeurTaille-1) && valeurPosVert<=(valeurTaille-1)){
+                    Btn_LancerJeu.setEnabled(true);
+                }else{
+                    Btn_LancerJeu.setEnabled(false);
+                }
+            }
+        });
+        
+        SpinnerTaille.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                // Récupération de la valeur sélectionnée
+                int valeurMelange = (int) SpinnerMelange.getValue();
+                int valeurTaille = (int) SpinnerTaille.getValue();
+                int valeurPosHor = (int) SpinnerPosHor.getValue();
+                int valeurPosVert = (int) SpinnerPosVert.getValue();
+                if (valeurMelange<=((valeurTaille*valeurTaille)-1) && valeurPosHor<=(valeurTaille-1) && valeurPosVert<=(valeurTaille-1)){
+                    Btn_LancerJeu.setEnabled(true);
+                }else{
+                    Btn_LancerJeu.setEnabled(false);
+                }
+            }
+        });
     }
 
     /**
@@ -49,13 +121,22 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Speedrun = new javax.swing.JButton();
         Btn_Chrono = new javax.swing.JButton();
         Btn_Sandbox = new javax.swing.JButton();
-        Spinner_Sandbox = new javax.swing.JSpinner();
+        SpinnerTaille = new javax.swing.JSpinner();
         Txt_Selection_Diff = new javax.swing.JLabel();
-        Text_Sandbox = new javax.swing.JLabel();
+        Txt_SandTaille = new javax.swing.JLabel();
+        SpinnerMelange = new javax.swing.JSpinner();
+        SpinnerPosVert = new javax.swing.JSpinner();
+        SpinnerPosHor = new javax.swing.JSpinner();
+        Btn_LancerJeu = new javax.swing.JButton();
+        Txt_SandPosHor = new javax.swing.JLabel();
+        Txt_SandPosVert = new javax.swing.JLabel();
+        Txt_SandMelange = new javax.swing.JLabel();
+        Txt_SandBox = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusableWindowState(false);
+        setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Mode_libre.setBackground(new java.awt.Color(102, 255, 51));
@@ -144,13 +225,44 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
-        getContentPane().add(Spinner_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 240, 70, -1));
+
+        SpinnerTaille.setModel(new javax.swing.SpinnerNumberModel(4, 4, 20, 1));
+        getContentPane().add(SpinnerTaille, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 70, -1));
 
         Txt_Selection_Diff.setText("Sélectionnez la difficultée :");
         getContentPane().add(Txt_Selection_Diff, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
-        Text_Sandbox.setText("Lignes x Colonnes");
-        getContentPane().add(Text_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, -1));
+        Txt_SandTaille.setText("Lignes x Colonnes");
+        getContentPane().add(Txt_SandTaille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+
+        SpinnerMelange.setModel(new javax.swing.SpinnerNumberModel(1, 1, 1000, 1));
+        getContentPane().add(SpinnerMelange, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 70, -1));
+
+        SpinnerPosVert.setModel(new javax.swing.SpinnerNumberModel(0, 0, 19, 1));
+        getContentPane().add(SpinnerPosVert, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 70, -1));
+
+        SpinnerPosHor.setModel(new javax.swing.SpinnerNumberModel(0, 0, 19, 1));
+        getContentPane().add(SpinnerPosHor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, -1));
+
+        Btn_LancerJeu.setText("Jouer");
+        Btn_LancerJeu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_LancerJeuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_LancerJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
+
+        Txt_SandPosHor.setText("Position horizontale du cavalier");
+        getContentPane().add(Txt_SandPosHor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 180, -1));
+
+        Txt_SandPosVert.setText("Position verticale du cavalier");
+        getContentPane().add(Txt_SandPosVert, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+
+        Txt_SandMelange.setText("Nombre de case à valider");
+        getContentPane().add(Txt_SandMelange, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 160, -1));
+
+        Txt_SandBox.setText("Sélectionnez vos paramètres de jeu :");
+        getContentPane().add(Txt_SandBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -234,10 +346,18 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         Btn_Sandbox.setVisible(false);
         
         // Affichage settings sandbox
-        Text_Sandbox.setVisible(true);
-        Spinner_Sandbox.setVisible(true);
+        SpinnerTaille.setVisible(true);
+        SpinnerPosHor.setVisible(true);
+        SpinnerPosVert.setVisible(true);
+        SpinnerMelange.setVisible(true);
+        Btn_LancerJeu.setVisible(true);
         
-        
+        Txt_SandTaille.setVisible(true);
+        Txt_SandMelange.setVisible(true);
+        Txt_SandPosHor.setVisible(true);
+        Txt_SandPosVert.setVisible(true);
+        Txt_SandBox.setVisible(true);
+        Txt_Selection_Diff.setVisible(false);
     }//GEN-LAST:event_Btn_SandboxActionPerformed
 
     private void Btn_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_QuitterActionPerformed
@@ -283,6 +403,22 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         fenetrePrincipale.setLocationRelativeTo(null);
     }//GEN-LAST:event_Btn_FacileActionPerformed
 
+    private void Btn_LancerJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LancerJeuActionPerformed
+        int valeurMelange = (int) SpinnerMelange.getValue();
+        int valeurTaille = (int) SpinnerTaille.getValue();
+        int valeurPosHor = (int) SpinnerPosHor.getValue();
+        int valeurPosVert = (int) SpinnerPosVert.getValue();
+        
+        // Fermer la fenêtre de démarrage
+        this.dispose();
+
+        // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu,valeurTaille,valeurPosHor,valeurPosVert,valeurMelange);
+        fenetrePrincipale.setVisible(true);
+
+        fenetrePrincipale.setLocationRelativeTo(null);
+    }//GEN-LAST:event_Btn_LancerJeuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -321,6 +457,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Chrono;
     private javax.swing.JButton Btn_Facile;
+    private javax.swing.JButton Btn_LancerJeu;
     private javax.swing.JButton Btn_Mode_enigme;
     private javax.swing.JButton Btn_Mode_fantas;
     private javax.swing.JButton Btn_Mode_libre;
@@ -328,9 +465,16 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Quitter;
     private javax.swing.JButton Btn_Sandbox;
     private javax.swing.JButton Btn_Speedrun;
-    private javax.swing.JSpinner Spinner_Sandbox;
-    private javax.swing.JLabel Text_Sandbox;
+    private javax.swing.JSpinner SpinnerMelange;
+    private javax.swing.JSpinner SpinnerPosHor;
+    private javax.swing.JSpinner SpinnerPosVert;
+    private javax.swing.JSpinner SpinnerTaille;
     private javax.swing.JLabel Txt_Bienv;
+    private javax.swing.JLabel Txt_SandBox;
+    private javax.swing.JLabel Txt_SandMelange;
+    private javax.swing.JLabel Txt_SandPosHor;
+    private javax.swing.JLabel Txt_SandPosVert;
+    private javax.swing.JLabel Txt_SandTaille;
     private javax.swing.JLabel Txt_Selection_Diff;
     private javax.swing.JLabel Txt_Selection_Mode;
     // End of variables declaration//GEN-END:variables

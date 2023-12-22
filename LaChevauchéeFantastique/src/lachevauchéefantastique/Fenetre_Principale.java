@@ -24,6 +24,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     int nbCoupsMAX;
     int nbTouche;
     boolean perdu=false;
+    int Nb_Melange;
+    int Position_Vert;
+    int Position_Hor;
+    int TaillePlateau;
 
     /**
      * Creates new form Fenetre_Principale
@@ -35,6 +39,41 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.ModeJeu=Mode;
         this.Difficulte=Diff;
         nbTouche = 2;
+        
+        // Def panneaux bouton deplacement
+        PanneauBoutonHAUT.setLayout(new GridLayout(nbTouche, 1));
+        getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, nbTouche * 40, 1 * 80));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonGAUCHE.setLayout(new GridLayout(1, nbTouche));
+        getContentPane().add(PanneauBoutonGAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, 1 * 100, nbTouche * 25));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonDROITE.setLayout(new GridLayout(nbTouche, 1));
+        getContentPane().add(PanneauBoutonDROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 300, nbTouche * 40, 1 * 80));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonBAS.setLayout(new GridLayout(1, nbTouche));
+        getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
+        this.pack();
+        this.revalidate();
+        
+        // Lancement jeu
+        setLocationRelativeTo(null);
+        initialiserPartie();
+    }
+    
+    public Fenetre_Principale(int Diff, int Mode, int Taille, int PositionHor, int PositionVert, int NbMelange) {
+        initComponents();
+        
+        // Def des attributs
+        this.ModeJeu=Mode;
+        this.Difficulte=Diff;
+        nbTouche = 2;
+        this.TaillePlateau=Taille;
+        this.Nb_Melange=NbMelange;
+        this.Position_Hor=PositionHor;
+        this.Position_Vert=PositionVert;
         
         // Def panneaux bouton deplacement
         PanneauBoutonHAUT.setLayout(new GridLayout(nbTouche, 1));
@@ -98,7 +137,11 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 this.nbLignes=9;
                 CreationGrille();
             } else { // Sandbox
-                
+                this.plateau=new PlateauDeJeu(this.TaillePlateau,this.TaillePlateau,this.Position_Hor,this.Position_Vert);
+                this.plateau.melangerMatriceAleatoirement(this.Nb_Melange);
+                this.nbColonnes=this.TaillePlateau;
+                this.nbLignes=this.TaillePlateau;
+                CreationGrille();
             }
         } else if (ModeJeu == 1) {
             if (Difficulte == 0) { // Facile
@@ -126,8 +169,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 this.nbLignes=9;
                 CreationGrille();
             } else { // Sandbox
-               this.nbColonnes=5;
-                this.nbLignes=5;
+                this.plateau=new PlateauDeJeu(this.TaillePlateau,this.TaillePlateau,this.Position_Hor,this.Position_Vert);
+                this.plateau.activerCaseAleatoireFantastique(this.Nb_Melange);
+                this.nbColonnes=this.TaillePlateau;
+                this.nbLignes=this.TaillePlateau;
                 CreationGrille();
             }
         } else {
