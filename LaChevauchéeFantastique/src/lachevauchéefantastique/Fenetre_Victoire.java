@@ -9,12 +9,22 @@ package lachevauchéefantastique;
  * @author bapti
  */
 public class Fenetre_Victoire extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Fenetre_Victoire
-     */
-    public Fenetre_Victoire() {
+    
+    int Difficulte;
+    int ModeJeu;
+    int Nb_Melange;
+    int Position_Vert;
+    int Position_Hor;
+    int TaillePlateau;
+       
+    public Fenetre_Victoire(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille) {
         initComponents();
+        this.Difficulte=Diff;
+        this.ModeJeu=Mode;
+        this.Nb_Melange=NbMelange;
+        this.Position_Hor=PosHor;
+        this.Position_Vert=PosVert;
+        this.TaillePlateau=Taille;
         setLocationRelativeTo(null);
     }
 
@@ -27,11 +37,38 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Btn_Rejouer = new javax.swing.JButton();
+        Btn_Menu = new javax.swing.JButton();
+        Btn_Quitter = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Btn_Rejouer.setText("Rejouer");
+        Btn_Rejouer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RejouerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Rejouer, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 110, -1));
+
+        Btn_Menu.setText("Menu Principal");
+        Btn_Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_MenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+
+        Btn_Quitter.setText("Quitter");
+        Btn_Quitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_QuitterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 110, -1));
 
         jLabel2.setFont(new java.awt.Font("Shrek", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 204, 0));
@@ -46,6 +83,32 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_QuitterActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_Btn_QuitterActionPerformed
+
+    private void Btn_RejouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RejouerActionPerformed
+        // Fermer la fenêtre
+        this.dispose();
+
+        // Ouvrir la fenêtre principale avec le niveau de difficulté sélectionné
+        Fenetre_Principale fenetrePrincipale = new Fenetre_Principale(this.Difficulte, this.ModeJeu, this.TaillePlateau, this.Position_Hor,this.Position_Vert,this.Nb_Melange);
+        fenetrePrincipale.setVisible(true);
+
+        fenetrePrincipale.setLocationRelativeTo(null);
+    }//GEN-LAST:event_Btn_RejouerActionPerformed
+
+    private void Btn_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MenuActionPerformed
+        // Fermer la fenêtre
+        this.dispose();
+        
+        // Ouvrir le menu
+        Fenetre_Demarrer fenetreMenu=new Fenetre_Demarrer();
+        fenetreMenu.setVisible(true);
+        
+        fenetreMenu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_Btn_MenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,12 +140,15 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fenetre_Victoire().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Menu;
+    private javax.swing.JButton Btn_Quitter;
+    private javax.swing.JButton Btn_Rejouer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

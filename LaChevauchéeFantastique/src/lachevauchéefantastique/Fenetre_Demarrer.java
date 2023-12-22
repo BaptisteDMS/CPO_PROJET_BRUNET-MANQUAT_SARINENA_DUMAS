@@ -170,7 +170,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Mode_enigme, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
-        Txt_Bienv.setText("Bienvenue sur la Chevauché fantastique Shrek édition");
+        Txt_Bienv.setText("Bienvenue sur la Chevauchée fantastique Shrek édition");
         getContentPane().add(Txt_Bienv, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 280, 20));
 
         Txt_Selection_Mode.setText("Sélectionnez le mode de jeu :");

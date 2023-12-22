@@ -82,7 +82,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Txt_Bienv">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bienvenue sur la Chevauch&#xe9; fantastique Shrek &#xe9;dition"/>
+        <Property name="text" type="java.lang.String" value="Bienvenue sur la Chevauch&#xe9;e fantastique Shrek &#xe9;dition"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

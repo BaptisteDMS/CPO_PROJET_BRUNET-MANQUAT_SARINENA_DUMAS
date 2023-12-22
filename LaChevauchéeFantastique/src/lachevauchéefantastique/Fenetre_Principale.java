@@ -24,10 +24,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     int nbCoupsMAX;
     int nbTouche;
     boolean perdu=false;
-    int Nb_Melange;
-    int Position_Vert;
-    int Position_Hor;
-    int TaillePlateau;
+    int Nb_Melange=0;
+    int Position_Vert=0;
+    int Position_Hor=0;
+    int TaillePlateau=0;
 
     /**
      * Creates new form Fenetre_Principale
@@ -189,11 +189,11 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         
         if (this.plateau.CaseToutesEteintes() == true && perdu==false) {
             this.dispose();
-            Fenetre_Victoire f = new Fenetre_Victoire();
+            Fenetre_Victoire f = new Fenetre_Victoire(this.Difficulte,this.ModeJeu,this.Nb_Melange,this.Position_Vert,this.Position_Hor,this.TaillePlateau);
             f.setVisible(true);
         }else if (perdu==true){
             this.dispose();
-            Fenetre_Perdant p = new Fenetre_Perdant();
+            Fenetre_Perdant p = new Fenetre_Perdant(this.Difficulte,this.ModeJeu,this.Nb_Melange,this.Position_Vert,this.Position_Hor,this.TaillePlateau);
             p.setVisible(true);
         }
     }
