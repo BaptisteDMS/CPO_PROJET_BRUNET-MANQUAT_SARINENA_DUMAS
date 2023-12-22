@@ -17,7 +17,7 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     int Position_Hor;
     int TaillePlateau;
        
-    public Fenetre_Victoire(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille) {
+    public Fenetre_Victoire(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille, String temps) {
         initComponents();
         this.Difficulte=Diff;
         this.ModeJeu=Mode;
@@ -25,6 +25,14 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
         this.Position_Hor=PosHor;
         this.Position_Vert=PosVert;
         this.TaillePlateau=Taille;
+        
+        if (Difficulte==2){
+           Txt_Temps.setText("Votre temps est de "+temps); 
+        }else{
+           Txt_Temps.setVisible(false);
+           Panel_Temps.setVisible(false);
+        } 
+        
         setLocationRelativeTo(null);
     }
 
@@ -37,6 +45,8 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Panel_Temps = new javax.swing.JPanel();
+        Txt_Temps = new javax.swing.JLabel();
         Btn_Rejouer = new javax.swing.JButton();
         Btn_Menu = new javax.swing.JButton();
         Btn_Quitter = new javax.swing.JButton();
@@ -45,6 +55,12 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Txt_Temps.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_Temps.setText("Temps");
+        Panel_Temps.add(Txt_Temps);
+
+        getContentPane().add(Panel_Temps, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 200, 20));
 
         Btn_Rejouer.setText("Rejouer");
         Btn_Rejouer.addActionListener(new java.awt.event.ActionListener() {
@@ -72,8 +88,8 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Shrek", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 204, 0));
-        jLabel2.setText("Tu es pas mouru l'ane");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        jLabel2.setText("T'es pas mouru l'âne !");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/FenetrePerdant .jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -149,6 +165,8 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Menu;
     private javax.swing.JButton Btn_Quitter;
     private javax.swing.JButton Btn_Rejouer;
+    private javax.swing.JPanel Panel_Temps;
+    private javax.swing.JLabel Txt_Temps;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

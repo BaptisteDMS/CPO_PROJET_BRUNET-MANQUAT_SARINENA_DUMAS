@@ -140,7 +140,6 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusableWindowState(false);
-        setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Mode_libre.setBackground(new java.awt.Color(102, 255, 51));
@@ -171,7 +170,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         getContentPane().add(Btn_Mode_enigme, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
         Txt_Bienv.setText("Bienvenue sur la Chevauchée fantastique Shrek édition");
-        getContentPane().add(Txt_Bienv, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 280, 20));
+        getContentPane().add(Txt_Bienv, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 300, 20));
 
         Txt_Selection_Mode.setText("Sélectionnez le mode de jeu :");
         getContentPane().add(Txt_Selection_Mode, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, 20));
@@ -228,7 +227,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
                 Btn_SandboxActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
+        getContentPane().add(Btn_Sandbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 80, -1));
 
         SpinnerTaille.setModel(new javax.swing.SpinnerNumberModel(4, 4, 20, 1));
         getContentPane().add(SpinnerTaille, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 70, -1));

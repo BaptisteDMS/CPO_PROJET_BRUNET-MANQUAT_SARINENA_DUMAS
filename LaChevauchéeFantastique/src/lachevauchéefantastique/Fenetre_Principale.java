@@ -23,23 +23,26 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     int nbColonnes;
     int nbCoupsMAX;
     int nbTouche;
-    boolean perdu=false;
-    int Nb_Melange=0;
-    int Position_Vert=0;
-    int Position_Hor=0;
-    int TaillePlateau=0;
+    boolean perdu = false;
+    int Nb_Melange = 0;
+    int Position_Vert = 0;
+    int Position_Hor = 0;
+    int TaillePlateau = 0;
+    long tempsLimiteEnMillisecondes = 0;
+    long tempsDebut = 0;
+    long tempsFin = 0;
 
     /**
      * Creates new form Fenetre_Principale
      */
     public Fenetre_Principale(int Diff, int Mode) {
         initComponents();
-        
+
         // Def des attributs
-        this.ModeJeu=Mode;
-        this.Difficulte=Diff;
+        this.ModeJeu = Mode;
+        this.Difficulte = Diff;
         nbTouche = 2;
-        
+
         // Def panneaux bouton deplacement
         PanneauBoutonHAUT.setLayout(new GridLayout(nbTouche, 1));
         getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, nbTouche * 40, 1 * 80));
@@ -57,24 +60,31 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
         this.pack();
         this.revalidate();
-        
+
+        // Gestion des modes avec timer
+        if (this.Difficulte == 2 || this.Difficulte == 3) {
+            int tempsLimiteEnSecondes = 30;
+            this.tempsLimiteEnMillisecondes = tempsLimiteEnSecondes * 1000;
+            this.tempsDebut = System.currentTimeMillis();
+        }
+
         // Lancement jeu
         setLocationRelativeTo(null);
         initialiserPartie();
     }
-    
+
     public Fenetre_Principale(int Diff, int Mode, int Taille, int PositionHor, int PositionVert, int NbMelange) {
         initComponents();
-        
+
         // Def des attributs
-        this.ModeJeu=Mode;
-        this.Difficulte=Diff;
+        this.ModeJeu = Mode;
+        this.Difficulte = Diff;
         nbTouche = 2;
-        this.TaillePlateau=Taille;
-        this.Nb_Melange=NbMelange;
-        this.Position_Hor=PositionHor;
-        this.Position_Vert=PositionVert;
-        
+        this.TaillePlateau = Taille;
+        this.Nb_Melange = NbMelange;
+        this.Position_Hor = PositionHor;
+        this.Position_Vert = PositionVert;
+
         // Def panneaux bouton deplacement
         PanneauBoutonHAUT.setLayout(new GridLayout(nbTouche, 1));
         getContentPane().add(PanneauBoutonHAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, nbTouche * 40, 1 * 80));
@@ -92,7 +102,14 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         getContentPane().add(PanneauBoutonBAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
         this.pack();
         this.revalidate();
-        
+
+        // Gestion des modes avec timer
+        if (this.Difficulte == 2 || this.Difficulte == 3) {
+            int tempsLimiteEnSecondes = 30;
+            this.tempsLimiteEnMillisecondes = tempsLimiteEnSecondes * 1000;
+            this.tempsDebut = System.currentTimeMillis();
+        }
+
         // Lancement jeu
         setLocationRelativeTo(null);
         initialiserPartie();
@@ -102,7 +119,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
         for (int i = 0; i < nbLignes; i++) {
-            for (int j = 0; j < nbColonnes; j++) { 
+            for (int j = 0; j < nbColonnes; j++) {
                 JButton Cellule_Graphique = new Cellule_Graphique(plateau.matriceCase[i][j], 36, 36);
                 PanneauGrille.add(Cellule_Graphique);
             }
@@ -115,86 +132,109 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             if (Difficulte == 0) { // Facile
                 this.plateau = new PlateauDeJeu(5, 5, 2, 2);
                 this.plateau.melangerMatriceAleatoirement(5);
-                this.nbColonnes=5;
-                this.nbLignes=5;
+                this.nbColonnes = 5;
+                this.nbLignes = 5;
                 CreationGrille();
             } else if (Difficulte == 1) { //Moyen
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
                 this.plateau.melangerMatriceAleatoirement(15);
-                this.nbColonnes=9;
-                this.nbLignes=9;
+                this.nbColonnes = 9;
+                this.nbLignes = 9;
                 CreationGrille();
             } else if (Difficulte == 2) { // Speedrun
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
                 this.plateau.melangerMatriceAleatoirement(10);
-                this.nbColonnes=9;
-                this.nbLignes=9;
+                this.nbColonnes = 9;
+                this.nbLignes = 9;
                 CreationGrille();
             } else if (Difficulte == 3) { // Chrono
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
                 this.plateau.melangerMatriceAleatoirement(10);
-                this.nbColonnes=9;
-                this.nbLignes=9;
+                this.nbColonnes = 9;
+                this.nbLignes = 9;
                 CreationGrille();
             } else { // Sandbox
-                this.plateau=new PlateauDeJeu(this.TaillePlateau,this.TaillePlateau,this.Position_Hor,this.Position_Vert);
+                this.plateau = new PlateauDeJeu(this.TaillePlateau, this.TaillePlateau, this.Position_Hor, this.Position_Vert);
                 this.plateau.melangerMatriceAleatoirement(this.Nb_Melange);
-                this.nbColonnes=this.TaillePlateau;
-                this.nbLignes=this.TaillePlateau;
+                this.nbColonnes = this.TaillePlateau;
+                this.nbLignes = this.TaillePlateau;
                 CreationGrille();
             }
         } else if (ModeJeu == 1) {
             if (Difficulte == 0) { // Facile
                 this.plateau = new PlateauDeJeu(5, 5, 2, 2);
                 this.plateau.activerCaseAleatoireFantastique(5);
-                this.nbColonnes=5;
-                this.nbLignes=5;
+                this.nbColonnes = 5;
+                this.nbLignes = 5;
                 CreationGrille();
             } else if (Difficulte == 1) { //Moyen
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
                 this.plateau.activerCaseAleatoireFantastique(15);
-                this.nbColonnes=9;
-                this.nbLignes=9;
+                this.nbColonnes = 9;
+                this.nbLignes = 9;
                 CreationGrille();
             } else if (Difficulte == 2) { // Speedrun
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
                 this.plateau.activerCaseAleatoireFantastique(10);
-                this.nbColonnes=9;
-                this.nbLignes=9;
+                this.nbColonnes = 9;
+                this.nbLignes = 9;
                 CreationGrille();
             } else if (Difficulte == 3) { // Chrono
                 this.plateau = new PlateauDeJeu(9, 9, 4, 4);
                 this.plateau.activerCaseAleatoireFantastique(10);
-                this.nbColonnes=9;
-                this.nbLignes=9;
+                this.nbColonnes = 9;
+                this.nbLignes = 9;
                 CreationGrille();
             } else { // Sandbox
-                this.plateau=new PlateauDeJeu(this.TaillePlateau,this.TaillePlateau,this.Position_Hor,this.Position_Vert);
+                this.plateau = new PlateauDeJeu(this.TaillePlateau, this.TaillePlateau, this.Position_Hor, this.Position_Vert);
                 this.plateau.activerCaseAleatoireFantastique(this.Nb_Melange);
-                this.nbColonnes=this.TaillePlateau;
-                this.nbLignes=this.TaillePlateau;
+                this.nbColonnes = this.TaillePlateau;
+                this.nbLignes = this.TaillePlateau;
                 CreationGrille();
             }
         } else {
             this.plateau = new PlateauDeJeu(8, 8, 4, 0);
             this.plateau.activerTouteCase();
-            this.nbColonnes=8;
-            this.nbLignes=8;
+            this.nbColonnes = 8;
+            this.nbLignes = 8;
             CreationGrille();
         }
     }
 
     public void FinDePartie() {
-        
-        
-        if (this.plateau.CaseToutesEteintes() == true && perdu==false) {
+
+        if (this.plateau.CaseToutesEteintes() == true && perdu == false) {
+            if (this.Difficulte == 2) {
+                this.tempsFin=System.currentTimeMillis();
+                long tempsEcoule = this.tempsFin - this.tempsDebut; // permet d'avoir le temps de jeu
+
+                // permet de convertir le temps en ms pour  un affichage jolie
+                long minutes = tempsEcoule / (60 * 1000);
+                long secondes = (tempsEcoule % (60 * 1000)) / 1000;
+                long millisecondes = tempsEcoule % 1000;
+
+                // format d'affichage du temps
+                String tempsFormate = String.format("%02dmin %02ds %03dms", minutes, secondes, millisecondes);
+                
+                this.dispose();
+                Fenetre_Victoire f = new Fenetre_Victoire(this.Difficulte, this.ModeJeu, this.Nb_Melange, this.Position_Vert, this.Position_Hor, this.TaillePlateau,tempsFormate);
+                f.setVisible(true);
+            } else {
+                this.dispose();
+                Fenetre_Victoire f = new Fenetre_Victoire(this.Difficulte, this.ModeJeu, this.Nb_Melange, this.Position_Vert, this.Position_Hor, this.TaillePlateau," ");
+                f.setVisible(true);
+            }
+        } else if (perdu == true) {
             this.dispose();
-            Fenetre_Victoire f = new Fenetre_Victoire(this.Difficulte,this.ModeJeu,this.Nb_Melange,this.Position_Vert,this.Position_Hor,this.TaillePlateau);
-            f.setVisible(true);
-        }else if (perdu==true){
-            this.dispose();
-            Fenetre_Perdant p = new Fenetre_Perdant(this.Difficulte,this.ModeJeu,this.Nb_Melange,this.Position_Vert,this.Position_Hor,this.TaillePlateau);
+            Fenetre_Perdant p = new Fenetre_Perdant(this.Difficulte, this.ModeJeu, this.Nb_Melange, this.Position_Vert, this.Position_Hor, this.TaillePlateau, false);
             p.setVisible(true);
+        } else if (this.Difficulte == 3) {
+            long tempsEcoule = System.currentTimeMillis() - this.tempsDebut;
+            if (tempsEcoule >= this.tempsLimiteEnMillisecondes) {
+                this.dispose();
+                Fenetre_Perdant p = new Fenetre_Perdant(this.Difficulte, this.ModeJeu, this.Nb_Melange, this.Position_Vert, this.Position_Hor, this.TaillePlateau, true);
+                p.setVisible(true);
+            }
         }
     }
 
@@ -400,8 +440,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Bouton_HautGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautGaucheActionPerformed
-        if (this.plateau.DeplacerCavalier(0)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(0) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -409,8 +449,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_HautGaucheActionPerformed
 
     private void Bouton_BasDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasDroiteActionPerformed
-        if (this.plateau.DeplacerCavalier(3)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(3) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -418,8 +458,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_BasDroiteActionPerformed
 
     private void Bouton_HautDroiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_HautDroiteActionPerformed
-        if (this.plateau.DeplacerCavalier(1)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(1) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -427,8 +467,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_HautDroiteActionPerformed
 
     private void Bouton_BasGaucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_BasGaucheActionPerformed
-        if (this.plateau.DeplacerCavalier(2)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(2) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -436,8 +476,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_BasGaucheActionPerformed
 
     private void Bouton_GaucheHautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_GaucheHautActionPerformed
-        if (this.plateau.DeplacerCavalier(4)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(4) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -445,8 +485,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_GaucheHautActionPerformed
 
     private void Bouton_GaucheBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_GaucheBasActionPerformed
-        if (this.plateau.DeplacerCavalier(5)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(5) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -454,8 +494,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_GaucheBasActionPerformed
 
     private void Bouton_DroiteHautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_DroiteHautActionPerformed
-        if (this.plateau.DeplacerCavalier(6)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(6) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -463,8 +503,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }//GEN-LAST:event_Bouton_DroiteHautActionPerformed
 
     private void Bouton_DroiteBasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bouton_DroiteBasActionPerformed
-        if (this.plateau.DeplacerCavalier(7)==true && this.ModeJeu!=0){
-            this.perdu=true;
+        if (this.plateau.DeplacerCavalier(7) == true && this.ModeJeu != 0) {
+            this.perdu = true;
         }
         repaint();
         FinDePartie();
@@ -501,7 +541,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }

@@ -19,7 +19,7 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
     /**
      * Creates new form Fenetre_Perdant
      */
-    public Fenetre_Perdant(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille) {
+    public Fenetre_Perdant(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille, boolean tempsDepasse) {
         initComponents();
         this.Difficulte=Diff;
         this.ModeJeu=Mode;
@@ -27,6 +27,10 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
         this.Position_Hor=PosHor;
         this.Position_Vert=PosVert;
         this.TaillePlateau=Taille;
+        Txt_tempsEcoule.setVisible(false);
+        if (tempsDepasse==true){
+            Txt_tempsEcoule.setVisible(true);
+        }
         setLocationRelativeTo(null);
     }
 
@@ -40,6 +44,7 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
     private void initComponents() {
 
         Btn_Quitter = new javax.swing.JButton();
+        Txt_tempsEcoule = new javax.swing.JLabel();
         Btn_Rejouer = new javax.swing.JButton();
         Btn_Menu = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -55,6 +60,10 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 110, -1));
+
+        Txt_tempsEcoule.setForeground(new java.awt.Color(255, 255, 255));
+        Txt_tempsEcoule.setText("Le temps est écoulé !");
+        getContentPane().add(Txt_tempsEcoule, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 120, 30));
 
         Btn_Rejouer.setText("Rejouer");
         Btn_Rejouer.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +85,7 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Shrek", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 153, 0));
         jLabel2.setText("Je vais mourir, je vais mourir, mourir ...");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 470, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 330, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/shrek.gif"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -150,6 +159,7 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Menu;
     private javax.swing.JButton Btn_Quitter;
     private javax.swing.JButton Btn_Rejouer;
+    private javax.swing.JLabel Txt_tempsEcoule;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
