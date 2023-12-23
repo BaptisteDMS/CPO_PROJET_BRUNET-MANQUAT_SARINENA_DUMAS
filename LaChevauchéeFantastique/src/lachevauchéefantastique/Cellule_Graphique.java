@@ -9,7 +9,7 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 
 /**
- *
+ * Cette classe permet de créer les cercles jaunes pour les cases allumées et un triangle pour la case contenant le cavalier
  * @author pierr
  */
 public class Cellule_Graphique extends JButton {
@@ -21,6 +21,12 @@ public class Cellule_Graphique extends JButton {
     int nbColonnes;
     CasePlateau estBlanche;
 
+    /**
+     * Permet d'initialiser les paramètres d'entrées
+     * @param celluleLumineuseAssociee correspond à une case du plateau de jeu 
+     * @param largeur correspond à la largeur de la case
+     * @param hauteur correspond à la hauteur de la case
+     */
     public Cellule_Graphique(CasePlateau celluleLumineuseAssociee, int largeur, int hauteur) {
         this.largeur = largeur;
         this.hauteur = hauteur;
@@ -28,16 +34,11 @@ public class Cellule_Graphique extends JButton {
 
     }
 
-    private void drawTriangle(Graphics k, int x, int y, int size) {
-        // Coordonnées des sommets du triangle
-        int[] xPoints = {x, x + size, x + size / 2};
-        int[] yPoints = {y, y, y - size};
-
-        // Dessiner le triangle
-        k.fillPolygon(xPoints, yPoints, 3);
-    }
-
-@Override
+    /**
+     * Pemret l'affichage des formes pour les cases allumées et la case contenant le cavalier
+     * @param g correspond à la surface des figures de la case
+     */
+    @Override
 protected void paintComponent(Graphics g) {
     super.paintComponent(g);
     this.setText(celluleLumineuseAssociee.toString());
