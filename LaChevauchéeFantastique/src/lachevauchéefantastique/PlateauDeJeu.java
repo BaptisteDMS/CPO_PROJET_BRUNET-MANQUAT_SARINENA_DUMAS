@@ -81,6 +81,9 @@ public class PlateauDeJeu {
         }
     }
     
+    /**
+     * permet d'activer toutes les cases du plateau de jeu
+     */
     public void activerTouteCase(){
         for (int i=0; i< this.nbLignes;i++){
             for (int j=0; j< this.nbColonnes; j++){
@@ -104,6 +107,10 @@ public class PlateauDeJeu {
         }
     }
 
+    /**
+     * Permet d'activer une combinaison de case allumée pour éviter de se déplacer sur une case éteinte
+     * @param nb_melange correspond aux nombres de cases à éteindre
+     */
     public void activerCaseAleatoireFantastique(int nb_melange) {
         int nb_alea;
         int position_vert_variable = this.position_verticale;
@@ -242,6 +249,11 @@ public boolean CaseToutesEteintes() {
         }
     }
 
+    /**
+     * Permet le déplacement du cavalier dans tout le plateau de jeu 
+     * @param option correspond au déplacement voulu par le joueur
+     * @return il retourne la case que le cavalier a éteint en se déplacant sur la case choisit
+     */
     public boolean DeplacerCavalier(int option) {
         boolean case_eteinte;
         case_eteinte=false;
