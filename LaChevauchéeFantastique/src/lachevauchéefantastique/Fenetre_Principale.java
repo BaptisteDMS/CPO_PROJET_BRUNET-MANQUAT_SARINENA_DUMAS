@@ -4,10 +4,18 @@ LA CHEVAUCHEE FANTASTIQUE, 13/11/2023, SARINENA-DUMAS-BRUNET MANQUAT
 package lachevauchéefantastique;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  * cette classe permet d'ouvrir la fenetre de jeu avec le plateau et les boutons de directions du cavalier
@@ -319,6 +327,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         PanneauBoutonDROITE_BAS = new javax.swing.JPanel();
         Bouton_DroiteBas = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 1000));
@@ -450,7 +459,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PanneauBoutonBAS_GAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 90, 50));
+        getContentPane().add(PanneauBoutonBAS_GAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, 90, 50));
 
         Btn_Quitter.setText("Quitter");
         Btn_Quitter.addActionListener(new java.awt.event.ActionListener() {
@@ -579,7 +588,15 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cavalierrrr.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 440, 400));
+
+        jButton1.setText("Guide");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 530, -1, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -671,6 +688,26 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_Btn_QuitterActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+                // Code pour ouvrir le PDF
+                try {
+                    // Obtenez l'URL du fichier en utilisant le classpath
+                    URL pdfUrl = getClass().getResource("/image/Guide.pdf");
+
+                    if (pdfUrl != null) {
+                        File file = new File(pdfUrl.toURI());
+                        Desktop.getDesktop().open(file);
+                    } else {
+                        System.out.println("Le fichier PDF n'a pas pu être trouvé.");
+                    }
+                } catch (IOException | URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
+            
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -726,6 +763,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauBoutonHAUT_DROITE;
     private javax.swing.JPanel PanneauBoutonHAUT_GAUCHE;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
