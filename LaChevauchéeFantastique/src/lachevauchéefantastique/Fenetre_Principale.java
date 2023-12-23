@@ -99,7 +99,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.pack();
         this.revalidate();
 
-        getContentPane().add(Btn_Guide, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 625, 100, 40));
+        getContentPane().add(Btn_Guide, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 0, 100, 40));
         this.pack();
         this.revalidate();
 
