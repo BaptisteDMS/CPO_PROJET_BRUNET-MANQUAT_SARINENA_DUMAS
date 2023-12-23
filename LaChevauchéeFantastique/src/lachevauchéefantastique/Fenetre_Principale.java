@@ -34,8 +34,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     /**
      * constructeur qui permet l'affichage des boutons de directions du cavaliers et de la gestion du timer
-     * @param Diff 
-     * @param Mode
+     * @param Diff correspond aux choix de la difficultées
+     * @param Mode correspond aux choix du modes de jeu
      */
     public Fenetre_Principale(int Diff, int Mode) {
         initComponents();
@@ -100,13 +100,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     /**
-     * 
-     * @param Diff
-     * @param Mode
-     * @param Taille
-     * @param PositionHor
-     * @param PositionVert
-     * @param NbMelange
+     * constructeur qui permet l'affichage des boutons de directions du cavaliers et de la gestion du timer
+     * @param Diff correspond aux choix de la difficultées
+     * @param Mode correspond aux choix du modes de jeu
+     * @param Taille correspond à la taille du plateau de jeu
+     * @param PositionHor correspond à la position horizontal du cavalier
+     * @param PositionVert correspond à la position vertical du cavalier
+     * @param NbMelange correspond aux nombres de lumières à éteindres
      */
     public Fenetre_Principale(int Diff, int Mode, int Taille, int PositionHor, int PositionVert, int NbMelange) {
         initComponents();
@@ -158,6 +158,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         initialiserPartie();
     }
 
+    /**
+     * Permet de créer le plateau de jeu
+     */
     public void CreationGrille() {
 
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
@@ -171,7 +174,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     /**
-     *
+     * Permet de créer le plateau de jeu avec les modes et les difficultées choisit
      */
     public void initialiserPartie() {
         if (ModeJeu == 0) {
@@ -248,7 +251,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     /**
-     *
+     * Permet de tester le code pour finir la partie, il va verifier si toutes les cases sont éteintes
      */
     public void FinDePartie() {
 
