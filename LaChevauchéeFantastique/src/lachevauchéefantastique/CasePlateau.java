@@ -63,6 +63,14 @@ public class CasePlateau {
             return true;
         }
     }
+    
+    public boolean estCavalier(){
+        if(this.etat!=2){
+            return false;
+        }else{
+            return true;
+        }
+    }
 /*
     public boolean estBlanche() {
         int nbLignes=5;

@@ -140,6 +140,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusableWindowState(false);
+        setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Mode_libre.setBackground(new java.awt.Color(102, 255, 51));
