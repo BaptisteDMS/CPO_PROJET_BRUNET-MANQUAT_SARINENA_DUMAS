@@ -18,7 +18,9 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
- * cette classe permet d'ouvrir la fenetre de jeu avec le plateau et les boutons de directions du cavalier
+ * cette classe permet d'ouvrir la fenetre de jeu avec le plateau et les boutons
+ * de directions du cavalier
+ *
  * @author pierr
  */
 public class Fenetre_Principale extends javax.swing.JFrame {
@@ -41,7 +43,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     long tempsFin = 0;
 
     /**
-     * constructeur qui permet l'affichage des boutons de directions du cavaliers et de la gestion du timer
+     * constructeur qui permet l'affichage des boutons de directions du
+     * cavaliers et de la gestion du timer
+     *
      * @param Diff correspond aux choix de la difficultées
      * @param Mode correspond aux choix du modes de jeu
      */
@@ -95,6 +99,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.pack();
         this.revalidate();
 
+        getContentPane().add(Btn_Guide, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 625, 100, 40));
+        this.pack();
+        this.revalidate();
+
         // Gestion des modes avec timer
         if (this.Difficulte == 2 || this.Difficulte == 3) {
             int tempsLimiteEnSecondes = 180;
@@ -108,7 +116,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     /**
-     * constructeur qui permet l'affichage des boutons de directions du cavaliers et de la gestion du timer
+     * constructeur qui permet l'affichage des boutons de directions du
+     * cavaliers et de la gestion du timer
+     *
      * @param Diff correspond aux choix de la difficultées
      * @param Mode correspond aux choix du modes de jeu
      * @param Taille correspond à la taille du plateau de jeu
@@ -182,7 +192,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     /**
-     * Permet de créer le plateau de jeu avec les modes et les difficultées choisit
+     * Permet de créer le plateau de jeu avec les modes et les difficultées
+     * choisit
      */
     public void initialiserPartie() {
         if (ModeJeu == 0) {
@@ -259,7 +270,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     /**
-     * Permet de tester le code pour finir la partie, il va verifier si toutes les cases sont éteintes
+     * Permet de tester le code pour finir la partie, il va verifier si toutes
+     * les cases sont éteintes
      */
     public void FinDePartie() {
 
@@ -326,11 +338,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         Bouton_BasDroite = new javax.swing.JButton();
         PanneauBoutonDROITE_BAS = new javax.swing.JPanel();
         Bouton_DroiteBas = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Btn_Guide = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1100, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanneauGrille.setBackground(new java.awt.Color(204, 204, 204));
@@ -586,13 +597,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         getContentPane().add(PanneauBoutonDROITE_BAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 220, 90, 50));
 
-        jButton1.setText("Guide");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Guide.setText("Guide");
+        Btn_Guide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Btn_GuideActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 530, -1, 20));
+        getContentPane().add(Btn_Guide, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 530, -1, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/photo_cavalier_2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -688,25 +699,25 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_Btn_QuitterActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Btn_GuideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_GuideActionPerformed
         // TODO add your handling code here:
-                // Code pour ouvrir le PDF
-                try {
-                    // Obtenez l'URL du fichier en utilisant le classpath
-                    URL pdfUrl = getClass().getResource("/image/Guide.pdf");
+        // Code pour ouvrir le PDF
+        try {
+            // Obtenez l'URL du fichier en utilisant le classpath
+            URL pdfUrl = getClass().getResource("/image/Guide.pdf");
 
-                    if (pdfUrl != null) {
-                        File file = new File(pdfUrl.toURI());
-                        Desktop.getDesktop().open(file);
-                    } else {
-                        System.out.println("Le fichier PDF n'a pas pu être trouvé.");
-                    }
-                } catch (IOException | URISyntaxException ex) {
-                    ex.printStackTrace();
-                }
-            
+            if (pdfUrl != null) {
+                File file = new File(pdfUrl.toURI());
+                Desktop.getDesktop().open(file);
+            } else {
+                System.out.println("Le fichier PDF n'a pas pu être trouvé.");
+            }
+        } catch (IOException | URISyntaxException ex) {
+            ex.printStackTrace();
+        }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_Btn_GuideActionPerformed
 
     /**
      * @param args the command line arguments
@@ -752,6 +763,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private javax.swing.JButton Bouton_GaucheHaut;
     private javax.swing.JButton Bouton_HautDroite;
     private javax.swing.JButton Bouton_HautGauche;
+    private javax.swing.JButton Btn_Guide;
     private javax.swing.JButton Btn_Menu;
     private javax.swing.JButton Btn_Quitter;
     private javax.swing.JPanel PanneauBoutonBAS_DROITE;
@@ -763,7 +775,6 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauBoutonHAUT_DROITE;
     private javax.swing.JPanel PanneauBoutonHAUT_GAUCHE;
     private javax.swing.JPanel PanneauGrille;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
