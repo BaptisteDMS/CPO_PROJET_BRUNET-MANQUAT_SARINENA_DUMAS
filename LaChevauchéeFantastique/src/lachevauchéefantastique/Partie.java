@@ -6,7 +6,7 @@ package lachevauchéefantastique;
 import java.util.Scanner;
 
 /**
- *
+ * Cette classe permet de faire le derouler du jeu
  * @author rembr
  */
 public class Partie {
@@ -22,6 +22,11 @@ public class Partie {
         this.nbCoups = 0;
     }
 
+    /**
+     * Permet d'initialiser les modes de jeux choisit et la difficultée choisit
+     * @param Difficulte correspond à la difficultée choisit
+     * @param ModeJeu correspond au mode de jeu choisit
+     */
     public void initialiserPartie(int Difficulte, int ModeJeu) {
         this.level = Difficulte;
         if (ModeJeu == 0) {
@@ -71,6 +76,10 @@ public class Partie {
         }
     }
 
+    /**
+     * Permet de selectionner la taille, la position , et le nombre de case allumé pour le mode de jeu sandbox
+     * @param ModeJeu correspond à un entier qui permet de choisir le mode de jeu
+     */
     public void SetSandbox(int ModeJeu) {
         Scanner sc = new Scanner(System.in);
 
@@ -97,6 +106,9 @@ public class Partie {
         }
     }
 
+    /**
+     * Permet de lancer le mode de jeu "déplacement libre"
+     */
     public void lancerPartieMode1() {
         Scanner sc = new Scanner(System.in);
         boolean perdue = false;
@@ -151,6 +163,9 @@ public class Partie {
         
     }
 
+    /**
+     * Permet de lancer le mode de jeu "déplacement fantastique"
+     */
     public void lancerPartieMode2() {
         Scanner sc = new Scanner(System.in);
         boolean perdu = false;
@@ -207,6 +222,10 @@ public class Partie {
         }
     }
 
+    /**
+     * Permet de selectionner la difficultée choisit
+     * @return elle retourne un entier pour que cette entier soit comparer pour savoir quelle difficultée a choisit le joueur
+     */
     public int SelectionDifficulte() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Selectionnez la difficulté. (0 => Facile ; 1 => Moyenne ; 2 => Speedrun ; 3 => Chrono ; 4 => Sandbox)");
@@ -214,6 +233,10 @@ public class Partie {
         return difficulte;
     }
 
+    /**
+     * Permet de selectionner le mode de jeu choisit
+     * @return elle retourne un entier pour que cet entier soit comparer pour savoir quel mode de jeu le joueur a choisit
+     */
     public int SelectionModeJeu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Selectionnez le mode de jeu. (0 => Déplacement libre ; 1 => Déplacement fantastique ; 2 => Enigme)");
@@ -221,6 +244,9 @@ public class Partie {
         return modejeu;
     }
 
+    /**
+     * Permet de demarrer le jeu
+     */
     public void DemarrerJeu() {
         int ModeJeu = SelectionModeJeu();
         if (ModeJeu == 2) {
