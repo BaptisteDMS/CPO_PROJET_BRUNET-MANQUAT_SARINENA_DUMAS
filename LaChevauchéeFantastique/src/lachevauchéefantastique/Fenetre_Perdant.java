@@ -4,7 +4,7 @@ LA CHEVAUCHEE FANTASTIQUE, 03/12/2023, SARINENA-DUMAS-BRUNET MANQUAT
 package lachevauchéefantastique;
 
 /**
- *
+ * Cette classe permet l'affichage de la fenetre quand le joueur a perdu
  * @author pierr
  */
 public class Fenetre_Perdant extends javax.swing.JFrame {
@@ -17,7 +17,14 @@ public class Fenetre_Perdant extends javax.swing.JFrame {
     int TaillePlateau;
 
     /**
-     * Creates new form Fenetre_Perdant
+     * Constructeur permettant d'initialiser les paramètres d'entrées
+     * @param Diff correspond à la difficultée choisit
+     * @param Mode correspond au mode de jeu choisit
+     * @param NbMelange correspond aux nombres de lumières à éteidre
+     * @param PosVert correspond à la position vertical du cavalier
+     * @param PosHor correspond à la position horizontal du cavalier
+     * @param Taille correspond à la taille du plateau de jeu
+     * @param tempsDepasse correspond au temps que le joueur a dépassé
      */
     public Fenetre_Perdant(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille, boolean tempsDepasse) {
         initComponents();

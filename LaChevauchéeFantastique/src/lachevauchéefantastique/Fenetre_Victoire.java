@@ -5,7 +5,7 @@
 package lachevauchéefantastique;
 
 /**
- *
+ * cette calsse permet l'affichage de la fenetre de victoire
  * @author bapti
  */
 public class Fenetre_Victoire extends javax.swing.JFrame {
@@ -17,6 +17,16 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
     int Position_Hor;
     int TaillePlateau;
        
+    /**
+     * Constructeur permettant d'afficher la fenetre de victoire
+     * @param Diff correspond à la difficultée choisit
+     * @param Mode correspond au mode de jeu choisit
+     * @param NbMelange correspond aux nombres de lumières à éteidre
+     * @param PosVert correspond à la position vertical du cavalier
+     * @param PosHor correspond à la position horizontal du cavalier
+     * @param Taille correspond à la taille du plateau de jeu
+     * @param temps correspond au temps du joueur 
+     */
     public Fenetre_Victoire(int Diff, int Mode, int NbMelange, int PosVert, int PosHor, int Taille, String temps) {
         initComponents();
         this.Difficulte=Diff;

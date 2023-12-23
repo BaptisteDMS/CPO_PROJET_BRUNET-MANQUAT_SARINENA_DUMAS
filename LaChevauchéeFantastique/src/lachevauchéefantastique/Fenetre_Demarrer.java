@@ -8,7 +8,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- *
+ * Cette classe permet l'affichage de la fenetre de demarrage pour choisir les modes de jeux, les difficultées choisis
  * @author rembr
  */
 public class Fenetre_Demarrer extends javax.swing.JFrame {
@@ -17,7 +17,7 @@ public class Fenetre_Demarrer extends javax.swing.JFrame {
     int ModeJeu;
 
     /**
-     * Creates new form Fenetre_Demarrer
+     * Constructeur permettant d'afficher les fenetres de demarrages
      */
     public Fenetre_Demarrer() {
         initComponents();
