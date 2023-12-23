@@ -10,7 +10,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 
 /**
- *
+ * cette classe permet d'ouvrir la fenetre de jeu avec le plateau et les boutons de directions du cavalier
  * @author pierr
  */
 public class Fenetre_Principale extends javax.swing.JFrame {
@@ -33,7 +33,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     long tempsFin = 0;
 
     /**
-     * Creates new form Fenetre_Principale
+     * constructeur qui permet l'affichage des boutons de directions du cavaliers et de la gestion du timer
+     * @param Diff 
+     * @param Mode
      */
     public Fenetre_Principale(int Diff, int Mode) {
         initComponents();
@@ -97,6 +99,15 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         initialiserPartie();
     }
 
+    /**
+     * 
+     * @param Diff
+     * @param Mode
+     * @param Taille
+     * @param PositionHor
+     * @param PositionVert
+     * @param NbMelange
+     */
     public Fenetre_Principale(int Diff, int Mode, int Taille, int PositionHor, int PositionVert, int NbMelange) {
         initComponents();
 
@@ -159,6 +170,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     */
     public void initialiserPartie() {
         if (ModeJeu == 0) {
             if (Difficulte == 0) { // Facile
@@ -233,6 +247,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     */
     public void FinDePartie() {
 
         if (this.plateau.CaseToutesEteintes() == true && perdu == false) {
