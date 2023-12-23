@@ -63,29 +63,21 @@ public class CasePlateau {
             return true;
         }
     }
-    
-    public boolean estCavalier(){
-        if(this.etat!=2){
+
+    /**
+     * cette méthode permet de vérifier si il y a un cavalier sur la case
+     *
+     * @return elle retourne un true si il y a un cavalier sur la case et un
+     * false si elle est allumée ou éteinte
+     */
+    public boolean estCavalier() {
+        if (this.etat != 2) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
-/*
-    public boolean estBlanche() {
-        int nbLignes=5;
-        int nbColonnes=5;
-        for (int i = 0; i < nbColonnes; i++) {
-            for (int j = 0; j < nbLignes; j++) {
-                if ((i + j) % 2 = 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
-    }
-*/
+
     /**
      * Cette méthode renvoie l'état actuel de la case.
      *
@@ -111,9 +103,5 @@ public class CasePlateau {
         } else {
             return "C";
         }
-    }
-
-    void setColor(Color white) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
