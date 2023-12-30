@@ -139,28 +139,48 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.Position_Vert = PositionVert;
 
         // Def panneaux bouton deplacement
-        PanneauBoutonGAUCHE_HAUT.setLayout(new GridLayout(nbTouche, 1));
-        getContentPane().add(PanneauBoutonGAUCHE_HAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, nbTouche * 40, 1 * 80));
+        PanneauBoutonGAUCHE_HAUT.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonGAUCHE_HAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 100, 50));
         this.pack();
         this.revalidate();
-        PanneauBoutonHAUT_DROITE.setLayout(new GridLayout(1, nbTouche));
-        getContentPane().add(PanneauBoutonHAUT_DROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, 1 * 100, nbTouche * 25));
+        PanneauBoutonGAUCHE_BAS.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonGAUCHE_BAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 100, 50));
         this.pack();
         this.revalidate();
-        PanneauBoutonDROITE_HAUT.setLayout(new GridLayout(nbTouche, 1));
-        getContentPane().add(PanneauBoutonDROITE_HAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 300, nbTouche * 40, 1 * 80));
+        PanneauBoutonDROITE_HAUT.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonDROITE_HAUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 180, 100, 50));
         this.pack();
         this.revalidate();
-        PanneauBoutonBAS_GAUCHE.setLayout(new GridLayout(1, nbTouche));
-        getContentPane().add(PanneauBoutonBAS_GAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 1 * 100, nbTouche * 25));
+        PanneauBoutonDROITE_BAS.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonDROITE_BAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 300, 100, 50));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonBAS_GAUCHE.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonBAS_GAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 415, 100, 50));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonBAS_DROITE.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonBAS_DROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 415, 100, 50));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonHAUT_GAUCHE.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonHAUT_GAUCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 75, 100, 50));
+        this.pack();
+        this.revalidate();
+        PanneauBoutonHAUT_DROITE.setLayout(new GridLayout(1, 1));
+        getContentPane().add(PanneauBoutonHAUT_DROITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 75, 100, 50));
         this.pack();
         this.revalidate();
 
-        getContentPane().add(Btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 450, 100, 40));
+        getContentPane().add(Btn_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 525, 100, 40));
         this.pack();
         this.revalidate();
 
-        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 500, 100, 40));
+        getContentPane().add(Btn_Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 575, 100, 40));
+        this.pack();
+        this.revalidate();
+
+        getContentPane().add(Btn_Guide, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 0, 100, 40));
         this.pack();
         this.revalidate();
 
